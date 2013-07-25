@@ -1,0 +1,376 @@
+/*!
+ * FLAT KIT v1.2.0
+ *
+ * Copyright MosaicPro
+ * http://www.mosaicpro.biz
+ *
+ * Designed and built exclusively for sale @Envato Marketplaces.
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600&subset=latin,latin-ext);
+@import "mixins.less";
+
+// Variables
+// -------------------------
+
+// Variables
+// -------------------------
+
+@primaryColor: #e5412d;
+@dangerColor: #bd362f;
+@successColor: #609450;
+@warningColor: #ab7a4b;
+@inverseColor: #424242;
+@infoColor: #5cc7dd;
+@defaultColor: #bbbbbb;
+@spacing: 15px;
+
+// General Layout
+// -------------------------
+
+@bodyBg: #014f97;
+@bodyText: #7c7c7c;
+@bodyText2: #000;
+@containerBorder: #d8d8d8;
+@containerBg: #7c7c7c;
+@linkHover: #333333;
+@bodyTextShadow: 0 1px 0 #fff;
+@sidebarFullWidth: 150px;
+@sidebarHiddenWidth: 60px;
+
+// Top menus
+// -------------------------
+
+@topnavBorder1: #ffffff;
+@topnavBorder2: #ffffff;
+@navbarHeight: 43px;
+@navbarBg: #f4f4f4;
+@navbarText: #aaaaaa;
+@navbarActiveBg: #fff;
+@navbarActiveText: #040404;
+@navbarHoverBg: @navbarActiveBg;
+@navbarHoverText: @navbarActiveText;
+@navbarActiveIcon: @primaryColor;
+@navbarSecondaryBg: #275b87;
+
+// Sidebar Menu
+// -------------------------
+
+@menuBg: #1f2123;
+@menuAppbrand: #040404;
+@menuText: #4c4d4f;
+@menuBorder1: #161718;
+@menuBorder2: #2a2c2e;
+@menuActiveBg: #161718;
+@menuActiveText: #737474;
+
+// Content
+// -------------------------
+
+@contentGradient1: #fdfdfd;
+@contentGradient2: #f4f4f4;
+@contentShadow1: #dbdbdb;
+@contentShadow2: #f6f6f6;
+@widgetBg: #ffffff;
+@widgetBgGray: #f4f4f4;
+@contentBg1: #fafafa;
+@contentBorder: #efefef;
+@contentBorder2: #ebebeb;
+@subheadingText: lighten(@bodyText, 20%);
+@footerBg: #424242;
+@footerHeight: 48px;
+
+// Widget specific
+// -------------------------
+
+@listActiveHoverBg: #f2f2f2;
+@listActiveHoverBoxShadow: 0 1px 0 0 #fff inset;
+@preBg1: #f8f8f8;
+@preBg2: #eeeeee;
+@wellBg: #fafafa;
+
+// Front
+@navbarSecondaryHeight: 30px;
+@navbarSecondaryBg: #f4f4f4;
+@navbarSecondaryBorder: #dbdbdb;
+@navbarSecondaryColor: #dbdbdb;
+@navbar2Height: 57px;
+@navbar2Bg: #fff;
+@navbar2Border: #efefef;
+@frontNavbarText: #040404;
+@frontNavbarActiveText: @primaryColor;
+
+// dark menus
+@navbarBg: #212121;
+@navbarBg: #393939;
+@navbarText: #999;
+@navbarHoverBg: lighten(@navbarBg, 2%);
+@navbarHoverText: #ffffff;
+@navbarActiveBg: #fff;
+@navbarActiveText: #4d4d4d;
+@topnavBorder1: #333;
+@menuAppbrand: #fff;
+@footerBg: #f4f4f4;
+@navbar2Bg: @navbarBg;
+@navbar2Border: @navbarBg;
+@frontNavbarText: @navbarText;
+@frontNavbarActiveText: #fff;
+
+// Scaffolding
+// -------------------------
+
+@import "scaffolding.less";
+
+// Layout
+// -------------------------
+
+@import "layout.less";
+
+// Menus
+// -------------------------
+
+@import "menus.less";
+
+// Widgets
+// -------------------------
+
+@import "widgets.less";
+
+// Tabs
+// -------------------------
+
+@import "tabs.less";
+
+// Buttons
+// -------------------------
+
+@import "buttons.less";
+
+// Forms
+// -------------------------
+
+@import "forms.less";
+
+// Tables
+// -------------------------
+
+@import "tables.less";
+
+// Labels
+// -------------------------
+
+@import "labels.less";
+
+// Tooltips
+// -------------------------
+
+@import "tooltips.less";
+
+// Popovers
+// -------------------------
+
+@import "popovers.less";
+
+// Modals
+// -------------------------
+
+@import "modals.less";
+
+// Alerts
+// -------------------------
+
+@import "alerts.less";
+
+// Progress bars
+// -------------------------
+
+@import "progress-bars.less";
+
+// Accordions
+// -------------------------
+
+@import "accordions.less";
+
+// Pagination
+// -------------------------
+
+@import "pagination.less";
+
+// Notifications
+// -------------------------
+
+@import "notifications.less";
+
+// Sliders
+// -------------------------
+
+@import "sliders.less";
+
+// jQueryUI
+// -------------------------
+
+@import "jquery-ui.less";
+
+// Form Wizards
+// -------------------------
+
+@import "form-wizards.less";
+
+// Timeline
+// -------------------------
+
+@import "timeline.less";
+
+// Login
+// -------------------------
+
+//
+// Login section specific styles
+// --------------------------------------------------
+
+// Login
+// -------------------------
+
+body.login {
+	background: @containerBg;
+	#login {
+		a:not(.btn) { color: @bodyText; text-decoration: underline; }
+	    padding: 40px 0 0;
+	    h1 {
+	    	font-size: 20pt;
+	    	text-align: center;
+	    	display: block;
+	    	padding: 0 0 20px;
+	    	text-shadow: @bodyTextShadow;
+	    	i {
+	    		&:before {
+	    			position: relative;
+	    			left: auto;
+	    			top: auto;
+	    			color: @bodyText;
+	    		}
+	    	}
+	    }
+	    .wrapper {
+	    	max-width: 354px;
+	    	min-width: 300px;
+	    	margin: 0 auto;
+	    	position: relative;
+	    	&.signup {
+	    		max-width: 600px;
+	    	}
+	    }
+	    .widget {
+	    	.widget-head {
+	    		.btn { margin: -4px 0 0 5px; }
+	    		div { font-size: 12px; }
+	    	}
+	    	.widget-body {
+				background: #fafafa;
+	    	}
+	    	.widget-footer {
+	    		height: 40px;
+	    		line-height: 40px;
+	    		margin: @spacing 0 0;
+				border: 1px solid @contentBorder;
+	    		p { font-size: 12px; color: @bodyText; font-weight: 600; margin: 0; width: auto; float: none; padding: 0 10px 0 35px; display: block; height: 40px; line-height: 40px; i:before { top: 7px; left: 7px; } }
+	    	}
+	    }
+	    label { font-size: 13px; color: #7c7c7c; font-weight: 600; }
+        .checkbox { margin-top: 5px; }
+        .password { float: right; font-size: 12px; font-weight: 400; }
+        input[type="text"],
+	    input[type="password"] {
+	     	font-size: 13px;
+	        height: auto;
+	        margin-bottom: 10px;
+	        padding: 5px 9px;
+	        .bevelEmboss(0,0);
+	        .rounded();
+	        background: #fff;
+		}
+		::-webkit-input-placeholder { /* WebKit browsers */ color: #ccc; }
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: #ccc; }
+		::-moz-placeholder { /* Mozilla Firefox 19+ */ color: #ccc; }
+		:-ms-input-placeholder { /* Internet Explorer 10+ */ color: #ccc; }
+		form { margin: 0; }
+        p { 
+	        margin: 5px 0;
+	        &:first-child { margin: 0 0 10px; }
+	        &:last-child { margin: 10px 0 0; } 
+	    }
+	   	.form-signin {
+	   		position: relative;
+	        max-width: 600px;
+	        margin: 0 auto 20px;
+	        background-color: #fff;
+	        border: 1px solid #e5e5e5;
+	        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        .inner { padding: 20px; }
+		}
+	}
+}
+
+// Gallery
+// -------------------------
+
+@import "gallery.less";
+
+// Calendar
+// -------------------------
+
+@import "calendar.less";
+
+// Guided Tour
+// -------------------------
+
+@import "guidedtour.less";
+
+// Documentation
+// -------------------------
+
+@import "documentation.less";
+
+// Shop
+// -------------------------
+
+@import "shop.less";
+
+// Choose (Start) Page
+// -------------------------
+
+@import "choose.less";
+
+// Front module customizations
+// -------------------------
+
+@import "front.less";
+
+// RTL
+// -------------------------
+
+@import "rtl.less";
+
+// lt-ie9
+// -------------------------
+
+@import "lt-ie9.less";
+
+// Responsive
+// -------------------------
+
+@import "responsive.less";
+
+// Themer
+// -------------------------
+
+@import "themer.less";
+
+// Animations
+// -------------------------
+
+@import "animations.less";
