@@ -2,7 +2,9 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
+using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebMatrix.WebData;
 using ELegal.RecruitmentPortal.Web.Models;
 
@@ -39,6 +41,22 @@ namespace ELegal.RecruitmentPortal.Web.Filters
                     }
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+
+                    if (!Roles.RoleExists("Administrator"))
+                        Roles.CreateRole("Administrator");
+
+                    if (!Roles.RoleExists("Recruiter"))
+                        Roles.CreateRole("Recruiter");
+
+                    if (!Roles.RoleExists("HR"))
+                        Roles.CreateRole("HR");
+                    
+
+                    if (!WebSecurity.UserExists("mark@markogrady.com"))
+                        WebSecurity.CreateUserAndAccount("mark@markogrady.com", "password");
+
+                    if (!Roles.GetRolesForUser("mark@markogrady.com").Contains("Administrator"))
+                        Roles.AddUsersToRoles(new[] { "mark@markogrady.com" }, new[] { "Administrator" });
                 }
                 catch (Exception ex)
                 {

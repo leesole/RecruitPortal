@@ -32,6 +32,54 @@ namespace ELegal.RecruitmentPortal.Framework.Initial
                 };
             recruitmentCompanyList.ForEach(c => context.RecruitmentCompanies.AddOrUpdate(p => p.CompanyName, c));
 
+            #region Menu
+
+            var menuList = new List<Menu>()
+                {
+                      new Menu()
+                        {
+                            MenuName = "Candidates",
+                            MenuType = 2,
+                            Link = "Candidates",
+                            Icon = "icon-home",
+                            OrderPosition = 1
+                        },
+                          new Menu()
+                        {
+                            MenuName = "Vacancies",
+                            MenuType = 2,
+                            Link = "Vacancies",
+                            Icon = "icon-home",
+                            OrderPosition = 2
+                        },
+                    new Menu()
+                        {
+                            MenuName = "Controls",
+                            MenuType = 2,
+                            Link = "controltype",
+                            Icon = "icon-home",
+                            OrderPosition = 3
+                        },
+                     new Menu()
+                        {
+                            MenuName = "Templates",
+                            MenuType = 2,
+                            Link = "Questions",
+                            Icon = "icon-home",
+                            OrderPosition = 1
+                        },
+                     new Menu()
+                        {
+                            MenuName = "Settings",
+                            MenuType = 2,
+                            Link = "settings",
+                            Icon = "icon-cogs",
+                            OrderPosition = 5
+                        }
+
+                };
+            menuList.ForEach(c => context.Menus.AddOrUpdate(p => p.MenuName, c));
+            #endregion
         }
     }
 }

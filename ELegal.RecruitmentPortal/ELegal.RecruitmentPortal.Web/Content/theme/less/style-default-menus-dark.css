@@ -13,7 +13,7 @@
  */
 body {
   font-family: 'Roboto', sans-serif;
-  background: #014f97;
+  background: #dae9ff;
   font-size: 13px;
   color: #7c7c7c;
   position: relative;
@@ -421,7 +421,7 @@ p.separator i {
   overflow: hidden;
 }
 .containerBg {
-  background: #7c7c7c;
+  background: #dae9ff;
 }
 .whiteBg {
   background: #fff;
@@ -482,7 +482,7 @@ p.separator i {
 }
 html body > .container-fluid {
   padding: 0;
-  background: #7c7c7c;
+  background: #dae9ff;
 }
 html body > .container-fluid.fixed {
   margin: 30px auto 30px;
@@ -509,7 +509,7 @@ html:not(.sidebar) body > .container-fluid.fixed.menu-left {
   min-width: 320px;
   min-height: 500px;
   padding: 0 0 15px;
-  background: #7c7c7c;
+  background: #dae9ff;
 }
 #content > .menubar {
   border-left: none;
@@ -7213,7 +7213,7 @@ div.dataTables_filter label {
   background: #e5412d;
 }
 body.login {
-  background: #7c7c7c;
+  background: #dae9ff;
 }
 body.login #login {
   padding: 40px 0 0;

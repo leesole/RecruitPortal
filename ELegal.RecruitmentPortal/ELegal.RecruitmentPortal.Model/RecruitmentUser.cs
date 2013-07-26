@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -8,18 +7,12 @@ using System.Threading.Tasks;
 
 namespace ELegal.RecruitmentPortal.Model
 {
-    public class RecruitmentCompany: IRpAudit
+    public class RecruitmentUser :IRpAudit
     {
         [Key]
-        public int RecruitmentCompanyId { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        [DisplayName("CompanyName")]
-        public string CompanyName { get; set; }
-
-        public string LogoUrl { get; set; }
-        public string Notes { get; set; } 
+        public int RecruitmentUserId { get; set; }
+        public UserProfile UserProfile { get; set; }
+        public RecruitmentCompany RecruitmentCompany { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
