@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace ELegal.RecruitmentPortal.Model
 {
-    public class Candidate :IRpAudit
+    public class Interview : IRpAudit
     {
         [Key]
-        public int CandidateId { get; set; }
+        public int InterviewId { get; set; }
 
-        public string FirstName { get; set; }
-        public string Surname { get; set; }
-        public string HrNotes { get; set; }
-        public string RecruitmentNotes { get; set; }
+        public string Description { get; set; }
+        public DateTime InterviewDate { get; set; }
+        public virtual Submission Submission { get; set; }
+        public string Notes { get; set; }
+        public string RecruiterFeedBack { get; set; }
 
-        public virtual RecruitmentUser RecruitmentUser { get; set; }
+        public virtual ICollection<UserProfile> Interviewers { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }

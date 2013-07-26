@@ -11,8 +11,8 @@ namespace ELegal.RecruitmentPortal.Model
     {
         [Key]
         public int RecruitmentUserId { get; set; }
-        public UserProfile UserProfile { get; set; }
-        public RecruitmentCompany RecruitmentCompany { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual RecruitmentCompany RecruitmentCompany { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
