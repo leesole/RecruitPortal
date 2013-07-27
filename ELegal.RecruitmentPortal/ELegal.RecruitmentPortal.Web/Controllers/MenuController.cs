@@ -22,7 +22,20 @@ namespace ELegal.RecruitmentPortal.Web.Controllers
                 var menus = context.Menus.Where(mnu => mnu.MenuType == 2).OrderBy(mnu => mnu.OrderPosition).ToList();
                 menuViewModel.Menus = menus;
                 menuViewModel.SelectedMenu = selected;
-                return  PartialView(menuViewModel);
+                return PartialView("Menu/AppSideMenu", menuViewModel);
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult AppTopMenu(string selected)
+        {
+            using (var context = new RpContext())
+            {
+                var menuViewModel = new MenuViewModel();
+                var menus = context.Menus.Where(mnu => mnu.MenuType == 2).OrderBy(mnu => mnu.OrderPosition).ToList();
+                menuViewModel.Menus = menus;
+                menuViewModel.SelectedMenu = selected;
+                return PartialView("Menu/AppTopMenu", menuViewModel);
             }
         }
 

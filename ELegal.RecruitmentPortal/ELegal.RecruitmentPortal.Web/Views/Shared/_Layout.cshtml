@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
 <!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
 <!--[if IE 8]>    <html class="ie lt-ie9 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
@@ -76,25 +77,6 @@
 	<!-- Main Theme Stylesheet :: CSS -->
 	<link href="/Content/theme/css/style-default-menus-dark.css?1374506527" rel="stylesheet" type="text/css" />
 	
-	
-	
-	
-	<!-- Global -->
-	<script>
-		//<![CDATA[
-		var basePath = '',
-			commonPath = '/Content/';
-
-		// colors
-		var primaryColor = '#e5412d',
-			dangerColor = '#b55151',
-			successColor = '#609450',
-			warningColor = '#ab7a4b',
-			inverseColor = '#45484d';
-
-		var themerPrimaryColor = primaryColor;
-		//]]>
-	</script>
 </head>
 <body class="document-body ">
 	
@@ -125,10 +107,7 @@
 				</span>
 				<!-- // Sidebar Profile END -->
 				
-                @Html.Partial("Menu/AppSideMenu")
-				
-				
-				
+               @{ Html.RenderAction("AppSideMenu", "Menu",  new { area = "", selected = ViewBag.SelectedMenu }); }
 			
 			</div>
 			<!-- // Scrollable Menu wrapper with Maximum Height END -->
@@ -152,8 +131,8 @@
 			
 			
 						
-			<!-- // Not Blank Page END -->
-						@Html.Partial("Menu/AppTopMenu")
+			@*<!-- // Not Blank Page END -->
+			@{ Html.RenderAction("AppTopMenu", "Menu", new { area = "", selected = ViewBag.SelectedMenu }); }*@
 						
 						<!-- Top Menu Right -->
 			<ul class="topnav pull-right hidden-phone">
@@ -161,7 +140,7 @@
 								
 			
 				<!-- Profile / Logout menu -->
-				@Html.Partial("User/UserMenu",null)
+				@Html.Partial("User/UserMenu",new ELegal.RecruitmentPortal.Web.ViewModels.User.UserViewModel())
 				<!-- // Profile / Logout menu END -->
 				
 			</ul>
@@ -193,7 +172,7 @@
 </div>	
 	
 		
-		</div>
+			</div>
 		<!-- // Content END -->
 		
 				</div>
@@ -203,13 +182,11 @@
 		<div id="footer" class="hidden-print">
 			
 			<!--  Copyright Line -->
-			<div class="copy">&copy; 2012 - 2013 - <a href="http://www.markogrady.com">Mark O'Grady</a> - All Rights Reserved. <a href="http://markogrady.com" target="_blank">Site</a> - Current version: v1.2.0 / <a target="_blank" href="http://demo.mosaicpro.biz/flatkit/CHANGELOG">changelog</a></div>
+			<div class="copy">&copy; 2012 - 2013 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase FLAT KIT on ThemeForest</a> - Current version: v1.2.0 / <a target="_blank" href="http://demo.mosaicpro.biz/flatkit/CHANGELOG">changelog</a></div>
 			<!--  End Copyright Line -->
 	
 		</div>
 		<!-- // Footer END -->
-		
-	</div>
 	<!-- // Main Container Fluid END -->
 	
 <!-- Themer -->
@@ -314,8 +291,8 @@
 	<!-- Select2 Plugin -->
 	<script src="/Content/theme/scripts/plugins/forms/select2/select2.js"></script>
 	
-	<!-- Themer -->
-	<script src="/Content/theme/scripts/demo/themer.js"></script>
+	@*<!-- Themer -->
+	<script src="/Content/theme/scripts/demo/themer.js"></script>*@
 	
 	<!-- Twitter Feed -->
 	<script src="/Content/theme/scripts/demo/twitter.js"></script>

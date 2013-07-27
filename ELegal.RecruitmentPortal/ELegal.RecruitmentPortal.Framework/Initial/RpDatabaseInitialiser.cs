@@ -22,6 +22,7 @@ namespace ELegal.RecruitmentPortal.Framework.Initial
 
         public void SeedData(RpContext context)
         {
+            #region RecruitmentCompany
             var recruitmentCompanyList = new List<RecruitmentCompany>()
                 {
                     new RecruitmentCompany()
@@ -31,6 +32,28 @@ namespace ELegal.RecruitmentPortal.Framework.Initial
 
                 };
             recruitmentCompanyList.ForEach(c => context.RecruitmentCompanies.AddOrUpdate(p => p.CompanyName, c));
+            #endregion
+
+            #region MetaKeyValueForCandidate
+
+            var genders = new List<MetaKeyValue>()
+                {
+                    new MetaKeyValue()
+                        {
+                            MetaType = "Gender",
+                            Value =  "Male"
+                        },
+                     new MetaKeyValue()
+                        {
+                            MetaType = "Gender",
+                            Value =  "Female"
+                        },
+
+                };
+            genders.ForEach(c => context.MetaKeyValues.AddOrUpdate(p => p.Value, c));
+
+            #endregion
+
 
             #region Menu
 
@@ -80,6 +103,8 @@ namespace ELegal.RecruitmentPortal.Framework.Initial
                 };
             menuList.ForEach(c => context.Menus.AddOrUpdate(p => p.MenuName, c));
             #endregion
+
+            context.SaveChanges();
         }
     }
 }

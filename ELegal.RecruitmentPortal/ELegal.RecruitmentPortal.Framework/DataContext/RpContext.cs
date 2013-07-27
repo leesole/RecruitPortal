@@ -51,9 +51,9 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         public DbSet<RecruitmentCompany> RecruitmentCompanies { get; set; }
         public DbSet<RecruitmentUser> RecruitmentUsers { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
-        public DbSet<Candidate> Candidates { get; set; }    
-
-
+        public DbSet<Candidate> Candidates { get; set; }
+        public DbSet<Reference> References { get; set; }
+        public DbSet<MetaKeyValue> MetaKeyValues { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }       
