@@ -56,11 +56,7 @@ namespace ELegal.RecruitmentPortal.Web.Controllers
             MembershipUser user = Membership.GetUser();
             if (user != null)
             {
-                var rpuser = context.UserProfiles.SingleOrDefault(u => u.UserId == (int)user.ProviderUserKey);
-                if (rpuser != null)
-                {
-                    return rpuser;
-                }
+                
             }
 
             return null;

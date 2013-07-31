@@ -6,27 +6,21 @@ using System.Web.Mvc;
 
 namespace ELegal.RecruitmentPortal.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController :Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+           
+            //if (HttpContext.User.IsInRole("Administration"))
+            //    return RedirectToAction("Index", "Dashboard", new {area = "Administration"});
+            //if (HttpContext.User.IsInRole("Recruitment"))
+            //    return RedirectToAction("Index", "Dashboard", new { area = "Recruitment" });
+            //if (HttpContext.User.IsInRole("HR"))
+            //    return RedirectToAction("Index", "Dashboard", new { area = "HR" });
             return View();
+           
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

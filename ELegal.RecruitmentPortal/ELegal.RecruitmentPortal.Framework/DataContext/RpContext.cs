@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ELegal.RecruitmentPortal.Framework.Configuration;
 using ELegal.RecruitmentPortal.Framework.Initial;
 using ELegal.RecruitmentPortal.Model;
 
@@ -18,6 +20,13 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         }
         public RpContext() : base("DefaultConnection")
         {
+            
+        }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             
         }
 
@@ -54,9 +63,9 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Reference> References { get; set; }
         public DbSet<MetaKeyValue> MetaKeyValues { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }       
+        
 
 
 

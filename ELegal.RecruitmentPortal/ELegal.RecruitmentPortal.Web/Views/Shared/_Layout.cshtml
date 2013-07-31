@@ -1,300 +1,302 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
 <!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
 <!--[if IE 8]>    <html class="ie lt-ie9 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
 <!--[if gt IE 8]> <html class="animations ie gt-ie8 fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"> <![endif]-->
-<!--[if !IE]><!--><html class="animations fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat"><!-- <![endif]-->
+<!--[if !IE]><!-->
+<html class="animations fluid top-full menuh-top sticky-top sidebar sidebar-full sidebar-collapsible sidebar-width-mini sticky-sidebar sidebar-hat">
+<!-- <![endif]-->
 <head>
-	<title>Recruitement Portal</title>
-	
-	<!-- Meta -->
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
-	
-	<!-- Bootstrap -->
-	<link href="/Content/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-	<link href="/Content/bootstrap/css/responsive.css" rel="stylesheet" type="text/css" />
-	
-	<!-- Glyphicons Font Icons -->
-	<link href="/Content/theme/fonts/glyphicons/css/glyphicons.css" rel="stylesheet" />
-	
-	<link rel="stylesheet" href="/Content/theme/fonts/font-awesome/css/font-awesome.min.css">
-	<!--[if IE 7]><link rel="stylesheet" href="/Content/theme/fonts/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
-	
-	<!-- Uniform Pretty Checkboxes -->
-	<link href="/Content/theme/scripts/plugins/forms/pixelmatrix-uniform/css/uniform.default.css" rel="stylesheet" />
-	
-	<!-- PrettyPhoto -->
-	<link href="/Content/theme/scripts/plugins/gallery/prettyphoto/css/prettyPhoto.css" rel="stylesheet" />
-	
-	<!-- JQuery -->
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
+    <title>Recruitement Portal || @ViewBag.Title</title>
+
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <!-- Bootstrap -->
+    <link href="/Content/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/bootstrap/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- Glyphicons Font Icons -->
+    <link href="/Content/theme/fonts/glyphicons/css/glyphicons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/theme/fonts/font-awesome/css/font-awesome.min.css">
+    <!--[if IE 7]><link rel="stylesheet" href="/Content/theme/fonts/font-awesome/css/font-awesome-ie7.min.css"><![endif]-->
+
+    <!-- Uniform Pretty Checkboxes -->
+    <link href="/Content/theme/scripts/plugins/forms/pixelmatrix-uniform/css/uniform.default.css" rel="stylesheet" />
+
+    <!-- PrettyPhoto -->
+    <link href="/Content/theme/scripts/plugins/gallery/prettyphoto/css/prettyPhoto.css" rel="stylesheet" />
+
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
 	  <script src="/Content/theme/scripts/plugins/system/html5shiv.js"></script>
 	<![endif]-->
-	
-	<!-- Bootstrap Extended -->
-	<link href="/Content/bootstrap/extend/jasny-fileupload/css/fileupload.css" rel="stylesheet">
-	<link href="/Content/bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
-	<link href="/Content/bootstrap/extend/bootstrap-select/bootstrap-select.css" rel="stylesheet" />
-	<link href="/Content/bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" rel="stylesheet" />
-	
-	<!-- DateTimePicker Plugin -->
-	<link href="/Content/theme/scripts/plugins/forms/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" />
-	
-	<!-- JQueryUI -->
-	<link href="/Content/theme/scripts/plugins/system/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
-	
-	<!-- MiniColors ColorPicker Plugin -->
-	<link href="/Content/theme/scripts/plugins/color/jquery-miniColors/jquery.miniColors.css" rel="stylesheet" />
-	
-	<!-- Notyfy Notifications Plugin -->
-	<link href="/Content/theme/scripts/plugins/notifications/notyfy/jquery.notyfy.css" rel="stylesheet" />
-	<link href="/Content/theme/scripts/plugins/notifications/notyfy/themes/default.css" rel="stylesheet" />
-	
-	<!-- Gritter Notifications Plugin -->
-	<link href="/Content/theme/scripts/plugins/notifications/Gritter/css/jquery.gritter.css" rel="stylesheet" />
-	
-	<!-- Easy-pie Plugin -->
-	<link href="/Content/theme/scripts/plugins/charts/easy-pie/jquery.easy-pie-chart.css" rel="stylesheet" />
 
-	<!-- Google Code Prettify Plugin -->
-	<link href="/Content/theme/scripts/plugins/other/google-code-prettify/prettify.css" rel="stylesheet" />
-	
-	<!-- Select2 Plugin -->
-	<link href="/Content/theme/scripts/plugins/forms/select2/select2.css" rel="stylesheet" />
+    <!-- Bootstrap Extended -->
+    <link href="/Content/bootstrap/extend/jasny-fileupload/css/fileupload.css" rel="stylesheet">
+    <link href="/Content/bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
+    <link href="/Content/bootstrap/extend/bootstrap-select/bootstrap-select.css" rel="stylesheet" />
+    <link href="/Content/bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" rel="stylesheet" />
 
-	<!-- Pageguide Guided Tour Plugin -->
-	<!--[if gt IE 8]><!--><link media="screen" href="/Content/theme/scripts/plugins/other/pageguide/css/pageguide.css" rel="stylesheet" /><!--<![endif]-->
+    <!-- DateTimePicker Plugin -->
+    <link href="/Content/theme/scripts/plugins/forms/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" />
 
-	<!-- Main Theme Stylesheet :: CSS -->
-	<link href="/Content/theme/css/style-default-menus-dark.css?1374506527" rel="stylesheet" type="text/css" />
-	
+    <!-- JQueryUI -->
+    <link href="/Content/theme/scripts/plugins/system/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
+
+    <!-- MiniColors ColorPicker Plugin -->
+    <link href="/Content/theme/scripts/plugins/color/jquery-miniColors/jquery.miniColors.css" rel="stylesheet" />
+
+    <!-- Notyfy Notifications Plugin -->
+    <link href="/Content/theme/scripts/plugins/notifications/notyfy/jquery.notyfy.css" rel="stylesheet" />
+    <link href="/Content/theme/scripts/plugins/notifications/notyfy/themes/default.css" rel="stylesheet" />
+
+    <!-- Gritter Notifications Plugin -->
+    <link href="/Content/theme/scripts/plugins/notifications/Gritter/css/jquery.gritter.css" rel="stylesheet" />
+
+    <!-- Easy-pie Plugin -->
+    <link href="/Content/theme/scripts/plugins/charts/easy-pie/jquery.easy-pie-chart.css" rel="stylesheet" />
+
+    <!-- Google Code Prettify Plugin -->
+    <link href="/Content/theme/scripts/plugins/other/google-code-prettify/prettify.css" rel="stylesheet" />
+
+    <!-- Select2 Plugin -->
+    <link href="/Content/theme/scripts/plugins/forms/select2/select2.css" rel="stylesheet" />
+
+    <!-- Pageguide Guided Tour Plugin -->
+    <!--[if gt IE 8]><!-->
+    <link media="screen" href="/Content/theme/scripts/plugins/other/pageguide/css/pageguide.css" rel="stylesheet" />
+    <!--<![endif]-->
+
+    <!-- Main Theme Stylesheet :: CSS -->
+    <link href="/Content/theme/css/style-default-menus-dark.css?1374506527" rel="stylesheet" type="text/css" />
+
 </head>
 <body class="document-body ">
-	
-		<!-- Main Container Fluid -->
-	<div class="container-fluid menu-hidden sidebar-hidden-phone fluid menu-left">
-		
-				<!-- Sidebar menu & content wrapper -->
-		<div id="wrapper">
-		
-		<!-- Sidebar Menu -->
-		<div id="menu" class="hidden-print">
-		
-			<!-- Brand -->
-			<a href="#" class="appbrand"><span class="text-primary">HR</a>
-		
-			<!-- Scrollable menu wrapper with Maximum height -->
-			<div class="slim-scroll" data-scroll-height="800px">
-			
-				<!-- Menu Toggle Button -->
-				<button type="button" class="btn btn-navbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-				</button>
-				<!-- // Menu Toggle Button END -->
-				
-				<!-- Sidebar Profile -->
-				<span class="profile center">
-					<a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible"><img src="http://dummyimage.com/74x74/232323/ffffff&text=photo" alt="Avatar" /></a>
-				</span>
-				<!-- // Sidebar Profile END -->
-				
-               @{ Html.RenderAction("AppSideMenu", "Menu",  new { area = "", selected = ViewBag.SelectedMenu }); }
-			
-			</div>
-			<!-- // Scrollable Menu wrapper with Maximum Height END -->
-			
-		</div>
-		<!-- // Sidebar Menu END -->
-			
-		<!-- Content -->
-		<div id="content">
-		
-				<!-- Top navbar -->
-		<div class="navbar main">
-		
-			<!-- Menu Toggle Button -->
-			<button type="button" class="btn btn-navbar pull-left visible-phone">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<!-- // Menu Toggle Button END -->
-			
-						<!-- Not Blank page -->
-			
-			
-						
-			<!-- // Not Blank Page END -->
-			@{ Html.RenderAction("AppTopMenu", "Menu", new { area = "", selected = ViewBag.SelectedMenu }); }
-						
-						<!-- Top Menu Right -->
-			<ul class="topnav pull-right hidden-phone">
-			
-								
-			
-				<!-- Profile / Logout menu -->
-				@Html.Partial("User/UserMenu",new ELegal.RecruitmentPortal.Web.ViewModels.User.UserViewModel())
-				<!-- // Profile / Logout menu END -->
-				
-			</ul>
-			
-						<div class="clearfix"></div>
-			
-		</div>
-		<!-- Top navbar END -->
-				
-	<ul class="breadcrumb">
-	<li>You are here</li>
-	<li><a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="glyphicons dashboard"><i></i> FLAT KIT</a></li>
-	<li class="divider"><i class="icon-caret-right"></i></li>
-	<li>Pages</li>
-	<li class="divider"><i class="icon-caret-right"></i></li>
-	<li>Bookings</li>
-</ul>
 
-<!-- Heading -->
-<div class="heading-buttons">
-	<h1>Bookings <span>Page example</span></h1>
-	<div class="buttons pull-right">
-		<a href="" class="btn btn-primary btn-icon glyphicons circle_plus"><i></i> Add booking</a>
-	</div>
-	<div class="clearfix"></div>
-</div>
-<div class="separator bottom"></div>
-<!-- // Heading END -->
+    <!-- Main Container Fluid -->
+    <div class="container-fluid menu-hidden sidebar-hidden-phone fluid menu-left">
 
-<div class="innerLR">
+        <!-- Sidebar menu & content wrapper -->
+        <div id="wrapper">
 
-	@RenderBody()
-	
-</div>	
-	
-		
-			</div>
-		<!-- // Content END -->
-		
-		
-       </div>	
-		<div class="clearfix"></div>
-		<!-- // Sidebar menu & content wrapper END -->
-				
-		<div id="footer" class="hidden-print">
-			
-			<!--  Copyright Line -->
-			<div class="copy">&copy; 2012 - 2013 - <a href="http://www.littleparsley.com">Little Parsley</a> - All Rights Reserved. </div>
-			<!--  End Copyright Line -->
-	
-		</div>
-		<!-- // Footer END -->
-	</div>
-	<!-- // Main Container Fluid END -->
-	
+            <!-- Sidebar Menu -->
+            <div id="menu" class="hidden-print">
+
+                <!-- Brand -->
+                <a href="#" class="appbrand"><span class="text-primary">HR</a>
+
+                <!-- Scrollable menu wrapper with Maximum height -->
+                <div class="slim-scroll" data-scroll-height="800px">
+
+                    <!-- Menu Toggle Button -->
+                    <button type="button" class="btn btn-navbar">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <!-- // Menu Toggle Button END -->
+
+                    <!-- Sidebar Profile -->
+                    <span class="profile center">
+                        <a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible">
+                            <img src="~/Content/images/users/EleanorProfile.jpg" alt="Avatar" /></a>
+                    </span>
+                  
+                    <!-- // Sidebar Profile END -->
+
+                    @{ Html.RenderAction("AppSideMenu", "Menu", new { area = "", selected = ViewBag.SelectedMenu }); }
+
+                </div>
+                <!-- // Scrollable Menu wrapper with Maximum Height END -->
+
+            </div>
+            <!-- // Sidebar Menu END -->
+
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Top navbar -->
+                <div class="navbar main">
+
+                    <!-- Menu Toggle Button -->
+                    <button type="button" class="btn btn-navbar pull-left visible-phone">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <!-- // Menu Toggle Button END -->
+
+                    <!-- Not Blank page -->
 
 
-	
-	<!-- jQuery Event Move -->
-	<script src="/Content/theme/scripts/plugins/system/jquery.event.move/js/jquery.event.move.js"></script>
-	
-	<!-- jQuery Event Swipe -->
-	<script src="/Content/theme/scripts/plugins/system/jquery.event.swipe/js/jquery.event.swipe.js"></script>
-	
-	<!-- jQuery ScrollTo Plugin -->
-	<!--[if gt IE 8]><!--><script src="http://balupton.github.io/jquery-scrollto/lib/jquery-scrollto.js"></script><!--<![endif]-->
-	
-	<!-- History.js -->
-	<!--[if gt IE 8]><!--><script src="http://browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script><!--<![endif]-->
-	
-	<!-- jQuery Ajaxify -->
-	<!--[if gt IE 8]><!--><script src="/Content/theme/scripts/plugins/system/jquery-ajaxify/ajaxify-html5.js"></script><!--<![endif]-->
-	
-	
-	<!-- Code Beautify -->
-	<script src="/Content/theme/scripts/plugins/other/js-beautify/beautify.js"></script>
-	<script src="/Content/theme/scripts/plugins/other/js-beautify/beautify-html.js"></script>
-	
-	<!-- PrettyPhoto -->
-	<script src="/Content/theme/scripts/plugins/gallery/prettyphoto/js/jquery.prettyPhoto.js"></script>
-	
-	<!-- JQueryUI -->
-	<script src="/Content/theme/scripts/plugins/system/jquery-ui/js/jquery-ui-1.9.2.custom.min.js"></script>
-	
-	<!-- JQueryUI Touch Punch -->
-	<!-- small hack that enables the use of touch events on sites using the jQuery UI user interface library -->
-	<script src="/Content/theme/scripts/plugins/system/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	
-	
-	<!-- Modernizr -->
-	<script src="/Content/theme/scripts/plugins/system/modernizr.js"></script>
-	
-	<!-- Bootstrap -->
-	<script src="/Content/bootstrap/js/bootstrap.min.js"></script>
-	
-	<!-- SlimScroll Plugin -->
-	<script src="/Content/theme/scripts/plugins/other/jquery-slimScroll/jquery.slimscroll.js"></script>
-	
-	<!-- Holder Plugin -->
-	<script src="/Content/theme/scripts/plugins/other/holder/holder.js?1374506527"></script>
-	
-	<!-- Uniform Forms Plugin -->
-	<script src="/Content/theme/scripts/plugins/forms/pixelmatrix-uniform/jquery.uniform.min.js"></script>
-	
-	<!-- MegaMenu -->
-	<script src="/Content/theme/scripts/demo/megamenu.js?1374506527"></script>
 
-	<!-- Bootstrap Extended -->
-	<script src="/Content/bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
-	<script src="/Content/bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
-	<script src="/Content/bootstrap/extend/jasny-fileupload/js/bootstrap-fileupload.js"></script>
-	<script src="/Content/bootstrap/extend/bootbox.js"></script>
-	<script src="/Content/bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js"></script>
-	<script src="/Content/bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js"></script>
-	
-	<!-- Google Code Prettify -->
-	<script src="/Content/theme/scripts/plugins/other/google-code-prettify/prettify.js"></script>
-	
-	<!-- Gritter Notifications Plugin -->
-	<script src="/Content/theme/scripts/plugins/notifications/Gritter/js/jquery.gritter.min.js"></script>
-	
-	<!-- Notyfy Notifications Plugin -->
-	<script src="/Content/theme/scripts/plugins/notifications/notyfy/jquery.notyfy.js"></script>
-	
-	<!-- MiniColors Plugin -->
-	<script src="/Content/theme/scripts/plugins/color/jquery-miniColors/jquery.miniColors.js"></script>
-	
-	<!-- DateTimePicker Plugin -->
-	<script src="/Content/theme/scripts/plugins/forms/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+                    <!-- // Not Blank Page END -->
+                    @{ Html.RenderAction("AppTopMenu", "Menu", new { area = "", selected = ViewBag.SelectedMenu }); }
 
-	<!-- Cookie Plugin -->
-	<script src="/Content/theme/scripts/plugins/system/jquery.cookie.js"></script>
-	
-	<!-- Select2 Plugin -->
-	<script src="/Content/theme/scripts/plugins/forms/select2/select2.js"></script>
-	
-	<!-- Twitter Feed -->
-	<script src="/Content/theme/scripts/demo/twitter.js"></script>
-	
-	<!-- Easy-pie Plugin -->
-	<script src="/Content/theme/scripts/plugins/charts/easy-pie/jquery.easy-pie-chart.js"></script>
-	
-	<!-- Sparkline Charts Plugin -->
-	<script src="/Content/theme/scripts/plugins/charts/sparkline/jquery.sparkline.min.js"></script>
-	
-	<!-- Ba-Resize Plugin -->
-	<script src="/Content/theme/scripts/plugins/other/jquery.ba-resize.js"></script>
-	
-	
-	
-	<!-- Common Demo Script -->
-	<script src="/Content/theme/scripts/demo/common.js?1374506527"></script>
-	
-	
-	@RenderSection("scripts", required: false)
-	</body>
+                    <!-- Top Menu Right -->
+                    <ul class="topnav pull-right hidden-phone">
+
+
+
+                        <!-- Profile / Logout menu -->
+                        @Html.Partial("User/UserMenu", new ELegal.RecruitmentPortal.Web.ViewModels.User.UserViewModel())
+                        <!-- // Profile / Logout menu END -->
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Top navbar END -->
+
+                <ul class="breadcrumb">
+                    <li>You are here</li>
+                    <li><a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="glyphicons dashboard"><i></i>FLAT KIT</a></li>
+                    <li class="divider"><i class="icon-caret-right"></i></li>
+                    <li>Pages</li>
+                    <li class="divider"><i class="icon-caret-right"></i></li>
+                    <li>Bookings</li>
+                </ul>
+
+                
+
+                <div class="innerLR">
+
+                    @RenderBody()
+
+                </div>
+
+
+            </div>
+            <!-- // Content END -->
+
+
+        </div>
+        <div class="clearfix"></div>
+        <!-- // Sidebar menu & content wrapper END -->
+
+        <div id="footer" class="hidden-print">
+
+            <!--  Copyright Line -->
+            <div class="copy">&copy; 2012 - 2013 - <a href="http://www.littleparsley.com">Little Parsley</a> - All Rights Reserved. </div>
+            <!--  End Copyright Line -->
+
+        </div>
+        <!-- // Footer END -->
+    </div>
+    <!-- // Main Container Fluid END -->
+
+
+
+
+    <!-- jQuery Event Move -->
+    <script src="/Content/theme/scripts/plugins/system/jquery.event.move/js/jquery.event.move.js"></script>
+
+    <!-- jQuery Event Swipe -->
+    <script src="/Content/theme/scripts/plugins/system/jquery.event.swipe/js/jquery.event.swipe.js"></script>
+
+    <!-- jQuery ScrollTo Plugin -->
+    <!--[if gt IE 8]><!-->
+    <script src="http://balupton.github.io/jquery-scrollto/lib/jquery-scrollto.js"></script>
+    <!--<![endif]-->
+
+    <!-- History.js -->
+    <!--[if gt IE 8]><!-->
+    <script src="http://browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+    <!--<![endif]-->
+
+    <!-- jQuery Ajaxify -->
+    <!--[if gt IE 8]><!-->
+    <script src="/Content/theme/scripts/plugins/system/jquery-ajaxify/ajaxify-html5.js"></script>
+    <!--<![endif]-->
+
+
+    <!-- Code Beautify -->
+    <script src="/Content/theme/scripts/plugins/other/js-beautify/beautify.js"></script>
+    <script src="/Content/theme/scripts/plugins/other/js-beautify/beautify-html.js"></script>
+
+    <!-- PrettyPhoto -->
+    <script src="/Content/theme/scripts/plugins/gallery/prettyphoto/js/jquery.prettyPhoto.js"></script>
+
+    <!-- JQueryUI -->
+    <script src="/Content/theme/scripts/plugins/system/jquery-ui/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- JQueryUI Touch Punch -->
+    <!-- small hack that enables the use of touch events on sites using the jQuery UI user interface library -->
+    <script src="/Content/theme/scripts/plugins/system/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+
+    <!-- Modernizr -->
+    <script src="/Content/theme/scripts/plugins/system/modernizr.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="/Content/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- SlimScroll Plugin -->
+    <script src="/Content/theme/scripts/plugins/other/jquery-slimScroll/jquery.slimscroll.js"></script>
+
+    <!-- Holder Plugin -->
+    <script src="/Content/theme/scripts/plugins/other/holder/holder.js?1374506527"></script>
+
+    <!-- Uniform Forms Plugin -->
+    <script src="/Content/theme/scripts/plugins/forms/pixelmatrix-uniform/jquery.uniform.min.js"></script>
+
+    <!-- MegaMenu -->
+    <script src="/Content/theme/scripts/demo/megamenu.js?1374506527"></script>
+
+    <!-- Bootstrap Extended -->
+    <script src="/Content/bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
+    <script src="/Content/bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+    <script src="/Content/bootstrap/extend/jasny-fileupload/js/bootstrap-fileupload.js"></script>
+    <script src="/Content/bootstrap/extend/bootbox.js"></script>
+    <script src="/Content/bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js"></script>
+    <script src="/Content/bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js"></script>
+
+    <!-- Google Code Prettify -->
+    <script src="/Content/theme/scripts/plugins/other/google-code-prettify/prettify.js"></script>
+
+    <!-- Gritter Notifications Plugin -->
+    <script src="/Content/theme/scripts/plugins/notifications/Gritter/js/jquery.gritter.min.js"></script>
+
+    <!-- Notyfy Notifications Plugin -->
+    <script src="/Content/theme/scripts/plugins/notifications/notyfy/jquery.notyfy.js"></script>
+
+    <!-- MiniColors Plugin -->
+    <script src="/Content/theme/scripts/plugins/color/jquery-miniColors/jquery.miniColors.js"></script>
+
+    <!-- DateTimePicker Plugin -->
+    <script src="/Content/theme/scripts/plugins/forms/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- Cookie Plugin -->
+    <script src="/Content/theme/scripts/plugins/system/jquery.cookie.js"></script>
+
+    <!-- Select2 Plugin -->
+    <script src="/Content/theme/scripts/plugins/forms/select2/select2.js"></script>
+
+    <!-- Twitter Feed -->
+    <script src="/Content/theme/scripts/demo/twitter.js"></script>
+
+    <!-- Easy-pie Plugin -->
+    <script src="/Content/theme/scripts/plugins/charts/easy-pie/jquery.easy-pie-chart.js"></script>
+
+    <!-- Sparkline Charts Plugin -->
+    <script src="/Content/theme/scripts/plugins/charts/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Ba-Resize Plugin -->
+    <script src="/Content/theme/scripts/plugins/other/jquery.ba-resize.js"></script>
+
+
+
+    <!-- Common Demo Script -->
+    <script src="/Content/theme/scripts/demo/common.js?1374506527"></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
 </html>

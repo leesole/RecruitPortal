@@ -78,7 +78,7 @@
                             @Html.TextBoxFor(m => m.UserName, new { @class = "input-block-level", @placeholder = "Email Address" })
                             @Html.ValidationMessageFor(m => m.UserName)
 					    
-                            <label>Password <a class="password" href="">forgot it?</a></label>
+                            <label>Password </label>
                             @Html.PasswordFor(m => m.Password, new { @class = "input-block-level margin-none", @placeholder = "Your Password" })
                             @Html.ValidationMessageFor(m => m.Password)
 					   
@@ -92,6 +92,7 @@
                                 </div>
                                 <div class="span4 center">
                                     <button class="btn btn-block btn-inverse" type="submit">Sign in</button>
+                                    <a class="password" href="">forgot it?</a>
                                 </div>
                             </div>
                         }

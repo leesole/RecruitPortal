@@ -20,7 +20,30 @@
         </li>
         <li>
             <span>
-                <a class="btn btn-default btn-mini pull-right" href="login.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible">Sign Out</a>
+                @if (Request.IsAuthenticated)
+                {
+                    
+                    @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                    @Html.AntiForgeryToken()
+                    <a id="logoff">Log off</a>
+                    }
+                    <script>
+                        $('#logoff').click(function () {
+                            $('#logoutForm').submit();
+                        });
+                    </script>
+                }
+                else
+                {
+                    <ul>
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    </ul>
+                }
+
+
             </span>
         </li>
     </ul>

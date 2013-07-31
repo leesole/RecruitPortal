@@ -44,11 +44,11 @@ namespace ELegal.RecruitmentPortal.Web.Filters
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                     
                     #region Add Various Roles
-                    if (!Roles.RoleExists("Administrator"))
-                        Roles.CreateRole("Administrator");
+                    if (!Roles.RoleExists("Administration"))
+                        Roles.CreateRole("Administration");
 
-                    if (!Roles.RoleExists("Recruiter"))
-                        Roles.CreateRole("Recruiter");
+                    if (!Roles.RoleExists("Recruitment"))
+                        Roles.CreateRole("Recruitment");
 
                     if (!Roles.RoleExists("HR"))
                         Roles.CreateRole("HR");
@@ -58,8 +58,8 @@ namespace ELegal.RecruitmentPortal.Web.Filters
                     if (!WebSecurity.UserExists("mark@markogrady.com"))
                         WebSecurity.CreateUserAndAccount("mark@markogrady.com", "password");
 
-                    if (!Roles.GetRolesForUser("mark@markogrady.com").Contains("Administrator"))
-                        Roles.AddUsersToRoles(new[] { "mark@markogrady.com" }, new[] { "Administrator" });
+                    if (!Roles.GetRolesForUser("mark@markogrady.com").Contains("Administration"))
+                        Roles.AddUsersToRoles(new[] { "mark@markogrady.com" }, new[] { "Administration" });
                     #endregion Add Admin Users
 
                     #region Add HR User
@@ -74,8 +74,8 @@ namespace ELegal.RecruitmentPortal.Web.Filters
                     if (!WebSecurity.UserExists("eleanor@erringtonLegal.co.uk"))
                         WebSecurity.CreateUserAndAccount("eleanor@erringtonLegal.co.uk", "password");
 
-                    if (!Roles.GetRolesForUser("eleanor@erringtonLegal.co.uk").Contains("Recruiter"))
-                        Roles.AddUsersToRoles(new[] { "eleanor@erringtonLegal.co.uk" }, new[] { "Recruiter" });
+                    if (!Roles.GetRolesForUser("eleanor@erringtonLegal.co.uk").Contains("Recruitment"))
+                        Roles.AddUsersToRoles(new[] { "eleanor@erringtonLegal.co.uk" }, new[] { "Recruitment" });
                     #endregion Add HR Users
 
                 }

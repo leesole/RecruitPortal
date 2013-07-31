@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Candidate.cs" />
+    <Compile Include="CandidateSkills.cs" />
+    <Compile Include="CandidateSkillValue.cs" />
     <Compile Include="Interview.cs" />
     <Compile Include="IRpAudit.cs" />
     <Compile Include="Menu.cs" />

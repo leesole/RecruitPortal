@@ -43,43 +43,27 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Recruitment.Controllers
             return View(model);
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         //
-        // GET: /Recruitment/Candidate/Details/5
+        // POST: /Recruitment/Candidate/Create
 
-        //public ActionResult Details(int id = 0)
-        //{
-        //    Candidate candidate = db.Candidates.Find(id);
-        //    if (candidate == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(candidate);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Candidate candidate)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Candidates.Add(candidate);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-        ////
-        //// GET: /Recruitment/Candidate/Create
-
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        ////
-        //// POST: /Recruitment/Candidate/Create
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(Candidate candidate)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Candidates.Add(candidate);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(candidate);
-        //}
+            return View(candidate);
+        }
 
         ////
         //// GET: /Recruitment/Candidate/Edit/5

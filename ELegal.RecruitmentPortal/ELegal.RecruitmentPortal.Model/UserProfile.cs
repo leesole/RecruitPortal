@@ -8,17 +8,19 @@ using System.Threading.Tasks;
 
 namespace ELegal.RecruitmentPortal.Model
 {
+    [Table("UserProfile")]
     public class UserProfile
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        [DataType(DataType.EmailAddress)]
+        
         public string UserName { get; set; }
         
 
         public string FirstName { get; set; }
-        public string Surname { get; set; }
+        public string LastName { get; set; }
         
+       
     }
 }
