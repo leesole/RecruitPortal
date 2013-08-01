@@ -27,7 +27,7 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            
+            modelBuilder.Configurations.Add(new RoleConfiguration());
         }
 
         public override int SaveChanges()
@@ -64,7 +64,10 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         public DbSet<Reference> References { get; set; }
         public DbSet<MetaKeyValue> MetaKeyValues { get; set; }
         public DbSet<Menu> Menus { get; set; }
-        public DbSet<MenuItem> MenuItems { get; set; }       
+        public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<UserProfile> UserProfile { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Membership> Membership { get; set; } 
         
 
 

@@ -43,30 +43,32 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Recruitment.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    var model = new EditCandidate();
 
-        //
-        // POST: /Recruitment/Candidate/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Candidate candidate)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Candidates.Add(candidate);
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(candidate);
-        }
+        //    return View("Edit",model);
+        //}
 
         ////
-        //// GET: /Recruitment/Candidate/Edit/5
+        //// POST: /Recruitment/Candidate/Create
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(EditCandidate candidate)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        context.Candidates.Add(candidate);
+        //        context.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(candidate);
+        //}
+
+        //////
+        ////// GET: /Recruitment/Candidate/Edit/5
 
         //public ActionResult Edit(int id = 0)
         //{

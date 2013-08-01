@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\RoleConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="DataContext\RpContext.cs" />
     <Compile Include="Helpers\MetaKeyValueHelper.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Initial\RpDatabaseInitialiser.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

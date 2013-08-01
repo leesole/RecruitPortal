@@ -8,11 +8,12 @@ namespace ELegal.RecruitmentPortal.Web.Controllers
 {
     public class HomeController :Controller
     {
+       
         public ActionResult Index()
         {
-           
-            //if (HttpContext.User.IsInRole("Administration"))
-            //    return RedirectToAction("Index", "Dashboard", new {area = "Administration"});
+            var user = User.Identity;
+            if (User.IsInRole("Administration"))
+             return RedirectToAction("Index", "Dashboard", new { area = "Administration" });
             //if (HttpContext.User.IsInRole("Recruitment"))
             //    return RedirectToAction("Index", "Dashboard", new { area = "Recruitment" });
             //if (HttpContext.User.IsInRole("HR"))
