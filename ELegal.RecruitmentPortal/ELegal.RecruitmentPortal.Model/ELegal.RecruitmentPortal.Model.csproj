@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VacancyType.cs" />
     <Compile Include="Candidate.cs" />
     <Compile Include="CandidateSkills.cs" />
     <Compile Include="CandidateSkillValue.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="OAuthMembership.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecruitmentCompany.cs" />
+    <Compile Include="RecruitmentCompanyRate.cs" />
     <Compile Include="RecruitmentUser.cs" />
     <Compile Include="Reference.cs" />
     <Compile Include="ReferenceType.cs" />

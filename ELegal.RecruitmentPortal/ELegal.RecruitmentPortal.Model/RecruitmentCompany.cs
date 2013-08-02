@@ -17,9 +17,14 @@ namespace ELegal.RecruitmentPortal.Model
         [StringLength(50)]
         [DisplayName("CompanyName")]
         public string CompanyName { get; set; }
-
         public string LogoUrl { get; set; }
-        public string Notes { get; set; } 
+        public string Notes { get; set; }
+        public string TandC { get; set; }
+        public virtual ICollection<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
+
+        
+
+
 
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
