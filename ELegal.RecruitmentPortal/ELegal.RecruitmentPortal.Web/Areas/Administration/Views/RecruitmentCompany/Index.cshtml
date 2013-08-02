@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ELegal.RecruitmentPortal.Model.RecruitmentCompany>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Heading -->
+<div class="heading-buttons">
+    <h1>@ViewBag.Title <span>@ViewBag.SubTitle</span></h1>
+    <div class="buttons pull-right">
+        <a href="@Url.Action("Create", "RecruitmentCompany", new { area = "Administration" })" class="btn btn-primary btn-icon glyphicons circle_plus"><i></i>Add Recruitment Company</a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="separator bottom"></div>
+<!-- // Heading END -->
+
+<table class="table table-bordered table-condensed table-striped table-primary table-vertical-center checkbox">
+    <thead>
+        <tr>
+            <th style="width: 1%;" class="uniformjs"><input type="checkbox" /></th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr class="selectable">
+            <td class="center uniformjs"><input type="checkbox" /></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                <a href=" @Url.Action("Details","RecruitmentCompany", new { area = "Administration", id=item.RecruitmentCompanyId }) " class="btn-action glyphicons eye_open btn-default"><i></i></a>
+                <a href=" @Url.Action("Edit","RecruitmentCompany", new { area = "Administration", id=item.RecruitmentCompanyId }) " class="btn-action glyphicons pencil btn-success"><i></i></a>
+                <a href=" @Url.Action("Delete","RecruitmentCompany", new { area = "Administration", id=item.RecruitmentCompanyId }) " class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
+               
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
