@@ -14,15 +14,13 @@ namespace ELegal.RecruitmentPortal.Model
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        
+        [DataType(DataType.EmailAddress)]
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         
        public ICollection<Role> Roles { get; set; }
 
-        public UserProfile() {
-            this.Roles = new List<Role>();
-        }
+       
     }
 }

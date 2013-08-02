@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ELegal.RecruitmentPortal.Framework.Helpers;
+using ELegal.RecruitmentPortal.Web.Filters;
 
 namespace ELegal.RecruitmentPortal.Web.Controllers
 {
+    
     public class HomeController :Controller
     {
-       
         public ActionResult Index()
         {
-            var user = User.Identity;
+           
             if (User.IsInRole("Administration"))
              return RedirectToAction("Index", "Dashboard", new { area = "Administration" });
             //if (HttpContext.User.IsInRole("Recruitment"))

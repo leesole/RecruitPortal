@@ -8,15 +8,16 @@ using ELegal.RecruitmentPortal.Model;
 
 namespace ELegal.RecruitmentPortal.Framework.Helpers
 {
-    public class UserHelper
+    public static class UserHelper
     {
-        public bool IsUserInRole(string UserName)
+        public static bool IsUserInRole(string userName, string role)
         {
             using (var context = new RpContext())
             {
-                
+                var user = context.UserProfile.Where(usr => usr.UserName == userName
+                                                            && (usr.Roles.Count(o => o.RoleName == role) > 0));
+                return (user == null);
             }
-            return true;
         }
     }
 }

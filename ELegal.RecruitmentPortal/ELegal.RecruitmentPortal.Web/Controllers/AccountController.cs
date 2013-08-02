@@ -14,7 +14,6 @@ using ELegal.RecruitmentPortal.Web.Models;
 namespace ELegal.RecruitmentPortal.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
