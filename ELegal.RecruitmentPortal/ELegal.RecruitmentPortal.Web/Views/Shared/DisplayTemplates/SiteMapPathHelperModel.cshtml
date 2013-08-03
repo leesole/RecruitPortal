@@ -3,10 +3,18 @@
 @using System.Linq
 @using MvcSiteMapProvider.Web.Html.Models
 
+<ul class="breadcrumb">
+  <li>You are here</li>
+    <li> <a href="/" class="glyphicons dashboard"><i></i>Recruitment Portal</a></li>
+    <li class="divider"><i class="icon-caret-right"></i></li>
 @foreach (var node in Model) { 
-    @Html.DisplayFor(m => node);
     
+    
+    <li>
+    @Html.DisplayFor(m => node)
+    </li>
     if (node != Model.Last()) {
-        <text> &gt; </text>
+      <text> <li class="divider"><i class="icon-caret-right"></i></li></text>
     }
 }
+    </ul>
