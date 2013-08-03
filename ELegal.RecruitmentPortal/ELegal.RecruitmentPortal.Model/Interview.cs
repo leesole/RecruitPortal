@@ -20,6 +20,7 @@ namespace ELegal.RecruitmentPortal.Model
 
         public virtual ICollection<UserProfile> Interviewers { get; set; }
 
+        public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
         public DateTime UpdatedDate { get; set; }

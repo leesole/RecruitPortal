@@ -18,16 +18,23 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         {
             Database.SetInitializer(new RpDatabaseInitialiser());
         }
-        public RpContext() : base("DefaultConnection")
+        public RpContext()
+            : base("DefaultConnection")
         {
-            
+
         }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Configurations.Add(new RoleConfiguration());
+            //modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Entity<UserProfile>().HasMany<Role>(r => r.Roles).WithMany(u => u.UserProfiles).Map(m =>
+            {
+                m.ToTable("webpages_UsersInRoles");
+                m.MapLeftKey("UserId");
+                m.MapRightKey("RoleId");
+            });
         }
 
         public override int SaveChanges()
@@ -67,8 +74,8 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
         public DbSet<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
-        public DbSet<VacancyType> VacancyTypes { get; set; } 
-        
+        public DbSet<VacancyType> VacancyTypes { get; set; }
+
 
 
 

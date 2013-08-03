@@ -20,6 +20,7 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
             {
                 #region RecruitmentCompany
 
+                AddRating(context);
                 AddRecruitmentCompanies(context);
 
                 #endregion
@@ -32,6 +33,13 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
 
                 #endregion
 
+                #region Vacancies
+
+                AddVacancyTypes(context);
+
+                #endregion
+                
+                
                 #region Candidates
                 AddCandidates(context);
                 #endregion 
@@ -273,6 +281,105 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
             }
         }
 
+        private static void AddVacancyTypes(RpContext context)
+        {
+            var vacancytypes = new List<VacancyType>()
+                {
+                    new VacancyType()
+                        {
+                            Name = "Solicitor",
+                            Description = "Solicitor",
+                            ParentVacancyTypeId = 0
+                        },
+                         new VacancyType()
+                        {
+                            Name = "Legal Secretary",
+                            Description = "Legal Secretary",
+                            ParentVacancyTypeId = 0
+                        },
+                         new VacancyType()
+                        {
+                            Name = "Paralegal",
+                            Description = "Paralegal",
+                            ParentVacancyTypeId = 0
+                        },
+                        new VacancyType()
+                        {
+                            Name = "Case Worker",
+                            Description = "Case Worker",
+                            ParentVacancyTypeId = 0
+                        },
+                    
+                };
+            foreach (var vacancyType in vacancytypes)
+            {
+                var vac = context.VacancyTypes.FirstOrDefault(p => p.Name == vacancyType.Name && p.ParentVacancyTypeId == vacancyType.ParentVacancyTypeId );
+                if (vac == null)
+                    context.VacancyTypes.Add(vacancyType);
+            }
+            context.SaveChanges();
+            //child vacancies
+            var childVacancies = new List<VacancyType>()
+                {
+                    new VacancyType()
+                        {
+                            Name = "Agriculture",
+                            Description = "Agriculture",
+                            ParentVacancyTypeId = context.VacancyTypes.FirstOrDefault(o => o.Name == "Solicitor").VacancyTypeId
+                        },
+                        // new VacancyType()
+                        //{
+                        //    Name = "Residential Property",
+                        //    Description = "Residential Property",
+                        //    ParentVacancyTypeId = context.VacancyTypes.FirstOrDefault(o => o.Name == "Solicitor").VacancyTypeId
+                        //},
+                        //new VacancyType()
+                        //{
+                        //    Name = "Agriculture",
+                        //    Description = "Agriculture",
+                        //    ParentVacancyTypeId = context.VacancyTypes.FirstOrDefault(o => o.Name == "Paralegal").VacancyTypeId
+                        //},
+                        // new VacancyType()
+                        //{
+                        //    Name = "Residential Property",
+                        //    Description = "Residential Property",
+                        //    ParentVacancyTypeId = context.VacancyTypes.FirstOrDefault(o => o.Name == "Paralegal").VacancyTypeId
+                        //},
+                };
+            foreach (var vacancyType in childVacancies)
+            {
+                var vac = context.VacancyTypes.FirstOrDefault(p => p.Name == vacancyType.Name && p.ParentVacancyTypeId == vacancyType.ParentVacancyTypeId);
+                if (vac == null)
+                    context.VacancyTypes.Add(vacancyType);
+            }
+
+
+        }
+
+        private static void AddRating(RpContext context)
+        {
+            var ratings = new List<MetaKeyValue>()
+                {
+                    new MetaKeyValue()
+                        {
+                            EntityType = "RecruitmentCompany",
+                            MetaType = "Rating",
+                            Value = "Top"
+                        },
+                    new MetaKeyValue()
+                        {
+                            EntityType = "RecruitmentCompany",
+                            MetaType = "Rating",
+                            Value = "Lower"
+                        },
+                };
+            foreach (var rating in ratings)
+            {
+                var rat = context.MetaKeyValues.FirstOrDefault(p => p.MetaType == rating.MetaType && p.Value == rating.Value);
+                if (rat == null)
+                    context.MetaKeyValues.Add(rating);
+            }
+        }
 
         private static void AddRecruitmentCompanies(RpContext context)
         {
@@ -280,7 +387,15 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                 {
                     new RecruitmentCompany()
                         {
-                            CompanyName = "RecruitmentComp1"
+                            CompanyName = "RecruitmentComp1",
+                            LogoUrl = "http://erringtonlegal.co.uk/wp-content/uploads/2013/02/Logo400.png",
+                            Address1 = "1 Regent Street",
+                            City = "Cambridge",
+                            County = "Cambridgeshire",
+                            Postcode = "CB1 1AA",
+                            EmailAddress = "test@RecruitmentCompany1.com",
+                            Rating = context.MetaKeyValues.FirstOrDefault(p => p.MetaType == "Rating" && p.Value == "Top" && p.EntityType == "RecruitmentCompany"),
+                            Telephone = "01223 111 111"
                         },
                 };
             foreach (var recruitmentCompany in recruitmentCompanyList)

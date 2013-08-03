@@ -11,20 +11,10 @@ namespace ELegal.RecruitmentPortal.Model
     [Table("webpages_Roles")]
     public class Role
     {
-        public Role()
-        {
-            UsersInRoles = new List<UsersInRole>();
-        }
-
         [Key]
         public int RoleId { get; set; }
         [StringLength(256)]
         public string RoleName { get; set; }
-
-        //public ICollection<Membership> Members { get; set; }
-
-        [ForeignKey("RoleId")]
-        public ICollection<UsersInRole> UsersInRoles { get; set; }
-       
+        public virtual ICollection<UserProfile> UserProfiles { get; set; }
     }
 }

@@ -11,13 +11,6 @@ namespace ELegal.RecruitmentPortal.Model
     [Table("webpages_Membership")]
     public class Membership
     {
-        public Membership()
-        {
-            //Roles = new List<Role>();
-            OAuthMemberships = new List<OAuthMembership>();
-            UsersInRoles = new List<UsersInRole>();
-        }
-
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserId { get; set; }
         public DateTime? CreateDate { get; set; }
@@ -34,12 +27,5 @@ namespace ELegal.RecruitmentPortal.Model
         [StringLength(128)]
         public string PasswordVerificationToken { get; set; }
         public DateTime? PasswordVerificationTokenExpirationDate { get; set; }
-        //public ICollection<Role> Roles { get; set; }
-
-        [ForeignKey("UserId")]
-        public ICollection<OAuthMembership> OAuthMemberships { get; set; }
-
-        [ForeignKey("UserId")]
-        public ICollection<UsersInRole> UsersInRoles { get; set; }
     }
 }

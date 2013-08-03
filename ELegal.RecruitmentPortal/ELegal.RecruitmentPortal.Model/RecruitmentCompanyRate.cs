@@ -11,7 +11,6 @@ namespace ELegal.RecruitmentPortal.Model
     {
         [Key]
         public int RecruitmentCompanyRateId { get; set; }
-
         public virtual VacancyType VacancyType { get; set; }
         public decimal Rate { get; set; }
     }

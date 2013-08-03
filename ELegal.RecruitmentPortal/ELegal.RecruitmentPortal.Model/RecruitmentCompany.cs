@@ -18,14 +18,24 @@ namespace ELegal.RecruitmentPortal.Model
         [DisplayName("CompanyName")]
         public string CompanyName { get; set; }
         public string LogoUrl { get; set; }
-        public string Notes { get; set; }
         public string TandC { get; set; }
+       
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string Address4 { get; set; }
+        public string City { get; set; }
+        public string County { get; set; }
+        public string Postcode { get; set; }
+
+        public string Telephone { get; set; }
+        public string EmailAddress { get; set; }
+
+        public virtual MetaKeyValue Rating { get; set; }
+
         public virtual ICollection<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
 
-        
-
-
-
+        public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
         public DateTime UpdatedDate { get; set; }

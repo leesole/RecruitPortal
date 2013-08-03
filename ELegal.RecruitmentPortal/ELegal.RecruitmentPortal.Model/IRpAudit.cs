@@ -8,6 +8,7 @@ namespace ELegal.RecruitmentPortal.Model
 {
     public interface IRpAudit
     {
+        bool Deleted { get; set; }
         DateTime CreatedDate { get; set; }
         string CreatedUser { get; set; }
         DateTime UpdatedDate { get; set; }

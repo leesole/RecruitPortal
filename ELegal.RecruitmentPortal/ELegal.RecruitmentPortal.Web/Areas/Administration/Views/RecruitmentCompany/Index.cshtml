@@ -25,9 +25,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.LogoUrl)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDate)
             </th>
@@ -54,11 +52,10 @@
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LogoUrl)
+              
+                 <img src="@Url.Content(item.LogoUrl)" alt="Company Logo" height="20px"/>
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
