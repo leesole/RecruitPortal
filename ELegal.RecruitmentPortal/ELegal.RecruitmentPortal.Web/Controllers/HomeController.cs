@@ -17,8 +17,8 @@ namespace ELegal.RecruitmentPortal.Web.Controllers
            
             if (User.IsInRole("Administration"))
              return RedirectToAction("Index", "Dashboard", new { area = "Administration" });
-            //if (HttpContext.User.IsInRole("Recruitment"))
-            //    return RedirectToAction("Index", "Dashboard", new { area = "Recruitment" });
+            if (HttpContext.User.IsInRole("Recruitment"))
+                return RedirectToAction("Index", "Dashboard", new { area = "Recruitment" });
             //if (HttpContext.User.IsInRole("HR"))
             //    return RedirectToAction("Index", "Dashboard", new { area = "HR" });
             return View();

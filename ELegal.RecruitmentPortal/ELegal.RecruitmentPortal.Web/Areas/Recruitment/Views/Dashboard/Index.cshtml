@@ -1,4 +1,4 @@
-﻿@model ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.Dashboard.IndexModel
+﻿@model ELegal.RecruitmentPortal.Web.Areas.Recruitment.ViewModels.Dashboard.IndexModel
 
 
 <h1>Dashboard</h1>
@@ -9,9 +9,9 @@
     <div class="span3">
 		<div class="innerAll padding-bottom-none-phone">
 			<a href="@Url.Action("Index","RecruitmentCompany",new{area="Administration"})" class="widget-stats widget-stats-primary widget-stats-4">
-				<span class="txt">Recruitment Companies</span>
-				<span class="count">@Model.NumberOfRecuitmentCompanies.ToString()</span>
-				<span class="glyphicons building"><i></i></span>
+				<span class="txt">Candidates</span>
+				<span class="count">3</span>
+				<span class="glyphicons group"><i></i></span>
 				<div class="clearfix"></div>
 				<i class="icon-play-circle"></i>
 			</a>
@@ -20,9 +20,9 @@
     <div class="span3">
 		<div class="innerAll padding-bottom-none-phone">
 			<a href="@Url.Action("Index","User",new{area="Administration"})" class="widget-stats widget-stats-default widget-stats-4">
-				<span class="txt">Users</span>
+				<span class="txt">Interviews</span>
 				<span class="count">2</span>
-				<span class="glyphicons user"><i></i></span>
+				<span class="glyphicons calendar"><i></i></span>
 				<div class="clearfix"></div>
 				<i class="icon-play-circle"></i>
 			</a>
@@ -32,3 +32,5 @@
 	
 </div>
 <!-- // Stats Widgets END -->
+
+

@@ -200,8 +200,9 @@
     <Compile Include="Areas\Recruitment\Controllers\CandidateController.cs" />
     <Compile Include="Areas\Recruitment\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Recruitment\RecruitmentAreaRegistration.cs" />
-    <Compile Include="Areas\Recruitment\ViewModels\Candidate\EditCandidate.cs" />
+    <Compile Include="Areas\Recruitment\ViewModels\Candidate\EditCandidateModel.cs" />
     <Compile Include="Areas\Recruitment\ViewModels\Candidate\IndexModel.cs" />
+    <Compile Include="Areas\Recruitment\ViewModels\Dashboard\IndexModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthenticatedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2608,6 +2609,7 @@
     <Content Include="Areas\Administration\Views\RecruitmentUser\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\User\Index.cshtml" />
     <Content Include="Areas\Administration\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Recruitment\Views\Dashboard\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -2673,7 +2675,6 @@
     <Folder Include="Areas\HR\Models\" />
     <Folder Include="Areas\HR\Views\Shared\" />
     <Folder Include="Areas\Recruitment\Models\" />
-    <Folder Include="Areas\Recruitment\Views\Dashboard\" />
     <Folder Include="Areas\Recruitment\Views\Shared\" />
     <Folder Include="Content\theme\scripts\plugins\forms\plupload\examples\uploads\" />
     <Folder Include="Content\theme\scripts\plugins\other\excanvas\examples\.svn\props\" />

@@ -32,6 +32,7 @@ namespace ELegal.RecruitmentPortal.Model
 //Private or State school
         
         public virtual RecruitmentUser RecruitmentUser { get; set; }
+        public virtual RecruitmentCompany RecruitmentCompany { get; set; }
 
         public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }

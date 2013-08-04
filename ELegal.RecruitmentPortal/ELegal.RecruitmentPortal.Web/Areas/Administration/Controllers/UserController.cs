@@ -56,7 +56,48 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
             }
         }
 
+        public ActionResult Details(int id = 0)
+        {
+            var model = PopulateUserEditModel(id);
+            model.ScreenType = ScreenType.Details;
+            if (model.UserProfile.UserName == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Edit", model);
+        }
 
+        public ActionResult Edit(int id = 0)
+        {
+            var model = PopulateUserEditModel(id);
+            model.ScreenType = ScreenType.Edit;
+            if (model.UserProfile.UserName == null)
+                return HttpNotFound();
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UserEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userProfile = context.UserProfile.FirstOrDefault(o => o.UserId == model.UserProfile.UserId);
+
+                if (userProfile != null)
+                {
+                    userProfile.FirstName = model.UserProfile.FirstName;
+                    userProfile.LastName = model.UserProfile.LastName;
+                    
+
+                    context.SaveChanges();
+                }
+                return RedirectToAction("Index", "User", new { area = "Administration" });
+            }
+            return View(model);
+        }
 
 
 
@@ -73,7 +114,8 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
             var userProfile = context.UserProfile.FirstOrDefault(o => o.UserId == id);
             if (userProfile != null){
                 model.UserProfile = userProfile;
-                model.CurrentRoles = userProfile.Roles.ToList();
+
+                //model.CurrentRoles = userProfile.Roles.ToList();
             }
             model.Roles = context.Role.Select(o => o).ToList();
             return model;

@@ -18,7 +18,7 @@ namespace ELegal.RecruitmentPortal.Model
         public virtual UserProfile UserProfile { get; set; }
         public virtual RecruitmentCompany RecruitmentCompany { get; set; }
 
-
+        public virtual ICollection<Candidate> Candidates { get; set; } 
         public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }

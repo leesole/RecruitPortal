@@ -6,7 +6,7 @@ using ELegal.RecruitmentPortal.Model;
 
 namespace ELegal.RecruitmentPortal.Web.Areas.Recruitment.ViewModels.Candidate
 {
-    public class EditCandidate
+    public class EditCandidateModel
     {
         public int CandidateId { get; set; }
         public string FirstName { get; set; }

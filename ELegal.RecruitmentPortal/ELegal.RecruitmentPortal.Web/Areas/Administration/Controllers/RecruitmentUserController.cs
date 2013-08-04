@@ -109,25 +109,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
             return View(model);
         }
 
-        private RecruitmentUserEditModel PopulateRecruitmentUserEditModel(int id)
-        {
-            var model = new RecruitmentUserEditModel();
-            var recruitmentUser = context.RecruitmentUsers.FirstOrDefault(o => o.RecruitmentUserId == id);
-            if (recruitmentUser != null)
-            {
-                //Set Recruitment Company
-                model.RecruitmentUserId = recruitmentUser.RecruitmentUserId;
-                model.UserName = recruitmentUser.UserProfile.UserName;
-                model.FirstName = recruitmentUser.UserProfile.FirstName;
-                model.LastName = recruitmentUser.UserProfile.LastName;
-                model.MobileNumber = recruitmentUser.MobileNumber;
-                model.TelephoneNumber = recruitmentUser.TelephoneNumber;
-                model.RecruitmentCompanyId = recruitmentUser.RecruitmentCompany.RecruitmentCompanyId;
-                model.CompanyName = recruitmentUser.RecruitmentCompany.CompanyName;
-            }
-            
-            return model;
-        }
+        
 
         //
         // POST: /Administration/RecruitmentUser/Edit/5
@@ -180,7 +162,25 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        private RecruitmentUserEditModel PopulateRecruitmentUserEditModel(int id)
+        {
+            var model = new RecruitmentUserEditModel();
+            var recruitmentUser = context.RecruitmentUsers.FirstOrDefault(o => o.RecruitmentUserId == id);
+            if (recruitmentUser != null)
+            {
+                //Set Recruitment Company
+                model.RecruitmentUserId = recruitmentUser.RecruitmentUserId;
+                model.UserName = recruitmentUser.UserProfile.UserName;
+                model.FirstName = recruitmentUser.UserProfile.FirstName;
+                model.LastName = recruitmentUser.UserProfile.LastName;
+                model.MobileNumber = recruitmentUser.MobileNumber;
+                model.TelephoneNumber = recruitmentUser.TelephoneNumber;
+                model.RecruitmentCompanyId = recruitmentUser.RecruitmentCompany.RecruitmentCompanyId;
+                model.CompanyName = recruitmentUser.RecruitmentCompany.CompanyName;
+            }
+
+            return model;
+        }
 
         protected override void Dispose(bool disposing)
         {

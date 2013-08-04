@@ -47,6 +47,7 @@ namespace ELegal.RecruitmentPortal.Model
 
         public virtual ICollection<RecruitmentUser> RecruitmentUsers { get; set; } 
         public virtual ICollection<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
+        public virtual ICollection<Candidate> Candidates { get; set; } 
 
         public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }
