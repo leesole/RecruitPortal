@@ -52,8 +52,8 @@
                             @role.RoleName
                             if (role != item.Roles.Last())
                             {
-                                <text>
-                                    , </text>
+                               
+                                <text>  , </text>
                             }
                         }
                     }
@@ -62,7 +62,7 @@
                     <a href=" @Url.Action("Details", "User", new { area = "Administration", id = item.UserId }) " class="btn-action glyphicons eye_open btn-default"><i></i></a>
                     <a href=" @Url.Action("Edit", "User", new { area = "Administration", id = item.UserId }) " class="btn-action glyphicons pencil btn-success"><i></i></a>
                     <a href=" @Url.Action("Delete", "User", new { area = "Administration", id = item.UserId }) " class="btn-action glyphicons remove_2 btn-danger"><i></i></a>
-
+                    <a href=" @Url.Action("ResetPassword", "User", new { area = "Administration", id = item.UserId }) " class="btn-action glyphicons lock btn-default"><i></i></a>
                 </td>
             </tr>
         }

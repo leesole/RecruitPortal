@@ -21,6 +21,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = "Recruitment Companies";
             return View(context.RecruitmentCompanies.Where(o => o.Deleted != true).ToList());
         }
 
@@ -29,6 +30,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Details(int id = 0)
         {
+            ViewBag.Title = "Recruitment Company";
             var model = PopulateRecruitmentCompanyEditModel(id);
             
            
