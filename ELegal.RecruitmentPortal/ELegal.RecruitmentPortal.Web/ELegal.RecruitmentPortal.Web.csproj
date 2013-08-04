@@ -2605,7 +2605,8 @@
     <Content Include="Areas\Administration\Views\RecruitmentCompany\Index.cshtml" />
     <Content Include="Areas\Administration\Views\RecruitmentCompany\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\RecruitmentCompany\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\RecruitmentUser\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\RecruitmentUser\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

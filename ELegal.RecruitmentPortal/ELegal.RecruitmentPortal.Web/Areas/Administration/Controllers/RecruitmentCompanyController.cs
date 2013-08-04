@@ -21,7 +21,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            return View(context.RecruitmentCompanies.Where(o => o.Deleted == false).ToList());
+            return View(context.RecruitmentCompanies.Where(o => o.Deleted != true).ToList());
         }
 
         //

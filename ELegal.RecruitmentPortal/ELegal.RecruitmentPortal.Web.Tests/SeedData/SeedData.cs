@@ -390,21 +390,25 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
 
         private static void AddRecruitmentCompanies(RpContext context)
         {
-            var recruitmentCompanyList = new List<RecruitmentCompany>()
-                {
-                    new RecruitmentCompany()
+            var recruitmentCompanyList = new List<RecruitmentCompany>();
+
+            for (int i = 0; i < 40; i++)
+            {
+                recruitmentCompanyList.Add(new RecruitmentCompany()
                         {
-                            CompanyName = "RecruitmentComp1",
+                            CompanyName = "RecruitmentComp" + i.ToString(),
                             LogoUrl = "http://erringtonlegal.co.uk/wp-content/uploads/2013/02/Logo400.png",
-                            Address1 = "1 Regent Street",
+                            Address1 = i.ToString() + " Regent Street",
                             City = "Cambridge",
                             County = "Cambridgeshire",
                             Postcode = "CB1 1AA",
                             EmailAddress = "test@RecruitmentCompany1.com",
                             Rating = context.MetaKeyValues.FirstOrDefault(p => p.MetaType == "Rating" && p.Value == "Top" && p.EntityType == "RecruitmentCompany"),
                             Telephone = "01223 111 111"
-                        },
-                };
+                        });
+            }
+
+
             foreach (var recruitmentCompany in recruitmentCompanyList)
             {
                 var recCompany = context.RecruitmentCompanies.FirstOrDefault(p => p.CompanyName == recruitmentCompany.CompanyName);

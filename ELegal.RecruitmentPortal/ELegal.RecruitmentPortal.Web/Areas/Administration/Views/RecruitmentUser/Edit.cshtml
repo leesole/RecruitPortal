@@ -1,0 +1,98 @@
+﻿@using ELegal.RecruitmentPortal.Web.Models
+@model ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentUser.RecruitmentUserEditModel
+
+<div class="heading-buttons">
+    <h1>@ViewBag.Title</h1>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <!-- Row -->
+    <div class="row-fluid">
+
+        <!-- Column -->
+        <div class="span6">
+            <div class="widget row-fluid widget-heading-simple widget-body-gray" data-toggle="collapse-widget">
+
+                <div class="widget-head">
+                    <h4 class="heading">Main Details</h4>
+                </div>
+
+                <div class="widget-body">
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserName, " Email Address") 
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.UserName)
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.TelephoneNumber)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TelephoneNumber)
+                        @Html.ValidationMessageFor(model => model.TelephoneNumber)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.MobileNumber)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MobileNumber)
+                        @Html.ValidationMessageFor(model => model.MobileNumber)
+                    </div>
+
+                </div>
+            </div>
+            @if (Model.ScreenType != ScreenType.Details)
+            {
+                <p>
+                    <button type="submit" value="create" id="btn-loading" class="btn btn-primary" data-loading-text="Custom Loading Text ...">Save</button>
+
+                </p>
+                @Html.HiddenFor(o => o.RecruitmentCompanyId)
+                @Html.HiddenFor(o => o.RecruitmentUserId)
+               
+            }
+        </div>
+    </div>  
+        
+
+       
+   
+}
+
+<div>
+   <a href="@Url.Action("Edit","RecruitmentCompany",new{area = "Administration", id= Model.RecruitmentCompanyId})"> Back to company</a> 
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+ @if (Model.ScreenType == ScreenType.Details)
+    {
+        <script type="text/javascript">
+
+            $("input").prop('disabled', true);
+        </script>
+    }
+
+}

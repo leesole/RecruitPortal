@@ -8,6 +8,6 @@ namespace ELegal.RecruitmentPortal.Web.Models
 {
     interface IViewModel
     {
-        public ScreenType ScreenType { get; set; }
+        ScreenType ScreenType { get; set; }
     }
 }

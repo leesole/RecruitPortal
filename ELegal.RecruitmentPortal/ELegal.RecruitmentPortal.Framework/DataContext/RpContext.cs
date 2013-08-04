@@ -53,14 +53,23 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
                                                (e.State == EntityState.Added) ||
                                                (e.State == EntityState.Modified)))
             {
-                IRpAudit e = (IRpAudit)entry.Entity;
-
-                if (entry.State == EntityState.Added)
+                try
                 {
-                    e.CreatedDate = DateTime.UtcNow;
-                }
+                    IRpAudit e = (IRpAudit)entry.Entity;
 
-                e.UpdatedDate = DateTime.UtcNow;
+                    if (entry.State == EntityState.Added)
+                    {
+                        e.CreatedDate = DateTime.UtcNow;
+                    }
+
+                    e.UpdatedDate = DateTime.UtcNow;
+                }
+                catch (Exception)
+                {
+                    
+                    
+                }
+                
             }
         }
 

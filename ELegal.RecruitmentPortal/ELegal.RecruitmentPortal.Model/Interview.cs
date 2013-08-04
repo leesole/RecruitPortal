@@ -25,6 +25,6 @@ namespace ELegal.RecruitmentPortal.Model
         public string CreatedUser { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedUser { get; set; }
-        public decimal Version { get; set; }
+        public decimal Version{ get; set; }
     }
 }

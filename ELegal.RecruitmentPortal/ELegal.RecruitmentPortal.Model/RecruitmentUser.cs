@@ -11,14 +11,19 @@ namespace ELegal.RecruitmentPortal.Model
     {
         [Key]
         public int RecruitmentUserId { get; set; }
+
+        public string TelephoneNumber { get; set; }
+        public string MobileNumber { get; set; }
+        
         public virtual UserProfile UserProfile { get; set; }
         public virtual RecruitmentCompany RecruitmentCompany { get; set; }
+
 
         public bool Deleted { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedUser { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedUser { get; set; }
-        public decimal Version { get; set; }
+        public decimal Version{ get; set; }
     }
 }
