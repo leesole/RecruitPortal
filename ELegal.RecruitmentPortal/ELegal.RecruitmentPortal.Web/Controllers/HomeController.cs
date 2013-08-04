@@ -13,6 +13,7 @@ namespace ELegal.RecruitmentPortal.Web.Controllers
     {
         public ActionResult Index()
         {
+            AuthConfig.InitWebSec();
            
             if (User.IsInRole("Administration"))
              return RedirectToAction("Index", "Dashboard", new { area = "Administration" });

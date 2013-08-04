@@ -190,8 +190,10 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Administration\Controllers\RecruitmentCompanyController.cs" />
+    <Compile Include="Areas\Administration\Controllers\RecruitmentUserController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Dashboard\IndexModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\RecruitmentCompany\RecruitmentCompanyEditModel.cs" />
     <Compile Include="Areas\HR\HRAreaRegistration.cs" />
     <Compile Include="Areas\Recruitment\Controllers\CandidateController.cs" />
     <Compile Include="Areas\Recruitment\Controllers\DashboardController.cs" />
@@ -2598,10 +2600,9 @@
     <Content Include="Mvc.sitemap" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\RecruitmentCompany\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\RecruitmentCompany\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\RecruitmentCompany\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\RecruitmentCompany\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\RecruitmentCompany\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\RecruitmentCompany\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\RecruitmentUser\Create.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -15,24 +15,37 @@ namespace ELegal.RecruitmentPortal.Model
 
         [Required]
         [StringLength(50)]
-        [DisplayName("CompanyName")]
+        [DisplayName("Company Name")]
         public string CompanyName { get; set; }
-        public string LogoUrl { get; set; }
-        public string TandC { get; set; }
-       
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
-        public string Address3 { get; set; }
-        public string Address4 { get; set; }
-        public string City { get; set; }
-        public string County { get; set; }
-        public string Postcode { get; set; }
 
+        [DataType(DataType.ImageUrl)]
+        [DisplayName("Company Logo Url")]
+        public string LogoUrl { get; set; }
+        
+        [DisplayName("Address Line 1")]
+        public string Address1 { get; set; }
+        [DisplayName("Address Line 2")]
+        public string Address2 { get; set; }
+        [DisplayName("Address Line 3")]
+        public string Address3 { get; set; }
+        [DisplayName("Address Line 4")]
+        public string Address4 { get; set; }
+        [DisplayName("City / Town")]
+        public string City { get; set; }
+        [DisplayName("County")]
+        public string County { get; set; }
+        [DataType(DataType.PostalCode)]
+        [DisplayName("Postcode")]
+        public string Postcode { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [DisplayName("Telephone No.")]
         public string Telephone { get; set; }
+        [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
 
         public virtual MetaKeyValue Rating { get; set; }
 
+        public virtual ICollection<RecruitmentUser> RecruitmentUsers { get; set; } 
         public virtual ICollection<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
 
         public bool Deleted { get; set; }

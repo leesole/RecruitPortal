@@ -14,6 +14,12 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
     {
 
         [TestMethod]
+        public void SeedUsers()
+        {
+            AuthConfig.InitWebSec();
+        }
+
+        [TestMethod]
         public void SeedAllData()
         {
             using (var context = new RpContext())
@@ -22,6 +28,7 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
 
                 AddRating(context);
                 AddRecruitmentCompanies(context);
+                AddRecruiters(context);
 
                 #endregion
 
@@ -405,6 +412,25 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                     context.RecruitmentCompanies.Add(recruitmentCompany);
             }
             
+        }
+
+        private static void AddRecruiters(RpContext context)
+        {
+            var recruitmentUsers = new List<RecruitmentUser>()
+                {
+                    new RecruitmentUser()
+                        {
+                           RecruitmentCompany = context.RecruitmentCompanies.FirstOrDefault(o => o.CompanyName == "RecruitmentComp1" ),
+                           UserProfile =  context.UserProfile.FirstOrDefault(o => o.UserName == "eleanor@erringtonLegal.co.uk")
+                        },
+                };
+            foreach (var recruitmentUser in recruitmentUsers)
+            {
+                var recUser = context.RecruitmentUsers.FirstOrDefault(p => p.UserProfile.UserId == recruitmentUser.UserProfile.UserId);
+                if (recUser == null)
+                    context.RecruitmentUsers.Add(recruitmentUser);
+            }
+
         }
     }
 }

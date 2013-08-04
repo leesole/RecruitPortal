@@ -7,19 +7,20 @@ using System.Web;
 using System.Web.Mvc;
 using ELegal.RecruitmentPortal.Model;
 using ELegal.RecruitmentPortal.Framework.DataContext;
+using ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany;
 
 namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 {
     public class RecruitmentCompanyController : Controller
     {
-        private RpContext db = new RpContext();
+        private RpContext context = new RpContext();
 
         //
         // GET: /Administration/RecruitmentCompany/
 
         public ActionResult Index()
         {
-            return View(db.RecruitmentCompanies.ToList());
+            return View(context.RecruitmentCompanies.Where(o => o.Deleted == false).ToList());
         }
 
         //
@@ -27,7 +28,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            RecruitmentCompany recruitmentcompany = db.RecruitmentCompanies.Find(id);
+            RecruitmentCompany recruitmentcompany = context.RecruitmentCompanies.Find(id);
             if (recruitmentcompany == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,22 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var model = new RecruitmentCompanyEditModel();
+            model.RecruitmentCompany.CompanyName = "test";
+            var ratingList = context.MetaKeyValues.Where(o => o.EntityType == "RecruitmentCompany" && o.MetaType == "Rating");
+            if (ratingList.Any())
+            {
+                foreach (var rating in ratingList)
+                {
+                    model.RatingsList.Add(new SelectListItem()
+                    {
+                        Text = rating.Value,
+                        Value = rating.MetaKeyValueId.ToString()
+                    });
+                }
+            }
+
+            return View("Edit",model);
         }
 
         //
@@ -48,16 +64,16 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RecruitmentCompany recruitmentcompany)
+        public ActionResult Create(RecruitmentCompanyEditModel model)
         {
             if (ModelState.IsValid)
             {
-                db.RecruitmentCompanies.Add(recruitmentcompany);
-                db.SaveChanges();
+                context.RecruitmentCompanies.Add(model.RecruitmentCompany);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(recruitmentcompany);
+            return View("Edit",model);
         }
 
         //
@@ -65,12 +81,44 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            RecruitmentCompany recruitmentcompany = db.RecruitmentCompanies.Find(id);
-            if (recruitmentcompany == null)
+            var model = new RecruitmentCompanyEditModel();
+            var recruitmentCompany = context.RecruitmentCompanies.FirstOrDefault(o => o.RecruitmentCompanyId == id);
+            if (recruitmentCompany != null)
+            {
+                //Set Recruitment Company
+                model.RecruitmentCompany = recruitmentCompany;
+
+                //Set List of Users
+                model.RecruitmentUserItems = (from usr in recruitmentCompany.RecruitmentUsers
+                                             select new RecruitmentUserItem()
+                                                 {
+                                                    RecruitmentUserId = usr.RecruitmentUserId,
+                                                    FirstName = usr.UserProfile.FirstName,
+                                                    LastName =  usr.UserProfile.LastName
+                                                 }).ToList();
+               
+
+
+
+                //Set Ratings
+                var ratingList = context.MetaKeyValues.Where(o => o.EntityType == "RecruitmentCompany" && o.MetaType == "Rating");
+                if (ratingList.Any())
+                {
+                    foreach (var rating in ratingList)
+                    {
+                        model.RatingsList.Add(new SelectListItem()
+                            {
+                                Text = rating.Value,
+                                Value = rating.MetaKeyValueId.ToString()
+                            });
+                    }
+                }
+            }
+            else
             {
                 return HttpNotFound();
             }
-            return View(recruitmentcompany);
+            return View(model);
         }
 
         //
@@ -78,15 +126,32 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(RecruitmentCompany recruitmentcompany)
+        public ActionResult Edit(RecruitmentCompanyEditModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(recruitmentcompany).State = EntityState.Modified;
-                db.SaveChanges();
+                var recruitmentCompany = context.RecruitmentCompanies.FirstOrDefault(o => o.RecruitmentCompanyId == model.RecruitmentCompany.RecruitmentCompanyId);
+
+                if (recruitmentCompany != null)
+                {
+                    recruitmentCompany.CompanyName = model.RecruitmentCompany.CompanyName;
+                    recruitmentCompany.Address1 = model.RecruitmentCompany.Address1;
+                    recruitmentCompany.Address2 = model.RecruitmentCompany.Address2;
+                    recruitmentCompany.Address3 = model.RecruitmentCompany.Address3;
+                    recruitmentCompany.Address4 = model.RecruitmentCompany.Address4;
+                    recruitmentCompany.City = model.RecruitmentCompany.City;
+                    recruitmentCompany.County = model.RecruitmentCompany.County;
+                    recruitmentCompany.Postcode = model.RecruitmentCompany.Postcode;
+                    recruitmentCompany.Telephone = model.RecruitmentCompany.Telephone;
+                    recruitmentCompany.EmailAddress = model.RecruitmentCompany.EmailAddress;
+                    recruitmentCompany.LogoUrl = model.RecruitmentCompany.LogoUrl;
+                    recruitmentCompany.Rating = model.RecruitmentCompany.Rating;
+
+                    context.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
-            return View(recruitmentcompany);
+            return View(model);
         }
 
         //
@@ -94,7 +159,7 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            RecruitmentCompany recruitmentcompany = db.RecruitmentCompanies.Find(id);
+            RecruitmentCompany recruitmentcompany = context.RecruitmentCompanies.Find(id);
             if (recruitmentcompany == null)
             {
                 return HttpNotFound();
@@ -109,15 +174,15 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RecruitmentCompany recruitmentcompany = db.RecruitmentCompanies.Find(id);
-            db.RecruitmentCompanies.Remove(recruitmentcompany);
-            db.SaveChanges();
+            RecruitmentCompany recruitmentcompany = context.RecruitmentCompanies.Find(id);
+            recruitmentcompany.Deleted = true;
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            context.Dispose();
             base.Dispose(disposing);
         }
     }

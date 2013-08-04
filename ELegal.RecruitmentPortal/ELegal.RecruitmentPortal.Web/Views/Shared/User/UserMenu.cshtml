@@ -1,29 +1,21 @@
 ﻿@model ELegal.RecruitmentPortal.Web.ViewModels.User.UserViewModel
 
 <li class="account dropdown dd-1">
-    <a data-toggle="dropdown" href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="glyphicons logout lock"><span class="hidden-tablet hidden-phone hidden-desktop-1">mosaicpro</span><i></i></a>
+    <a data-toggle="dropdown" href="#" class="glyphicons logout lock"><span class="hidden-tablet hidden-phone hidden-desktop-1">Account</span><i></i></a>
     <ul class="dropdown-menu pull-right">
-        <li><a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="glyphicons cogwheel">Settings<i></i></a></li>
-        <li><a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="glyphicons camera">My Photos<i></i></a></li>
         <li class="profile">
             <span>
-                <span class="heading">Profile <a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="pull-right text-primary text-weight-regular">edit</a></span>
-                <a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="img thumb">
+                  @if (Request.IsAuthenticated)
+                {                    
+                 <span class="heading">Profile <a href="@Url.Action( "Manage", "Account", new {area = ""})" class="pull-right text-primary text-weight-regular">edit</a></span>
+                <a href="@Url.Action( "Manage", "Account", new {area = ""})" class="img thumb">
                     <img data-src="holder.js/51x51/dark" alt="Avatar" />
                 </a>
                 <span class="details">
-                    <a href="my_account_advanced.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="strong text-regular">Mosaic Pro</a>
-                    contact@mosaicpro.biz
+                    <a href="@Url.Action( "Manage", "Account", new {area = ""})" class="strong text-regular">@User.Identity.Name</a>
+                    
                 </span>
                 <span class="clearfix"></span>
-            </span>
-        </li>
-        <li>
-            <span>
-                @if (Request.IsAuthenticated)
-                {
-                    
-                    @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
                     using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
                     {
                     @Html.AntiForgeryToken()
@@ -38,10 +30,15 @@
                 else
                 {
                     <ul>
-                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                     </ul>
                 }
+               
+            </span>
+        </li>
+        <li>
+            <span>
+              
 
 
             </span>

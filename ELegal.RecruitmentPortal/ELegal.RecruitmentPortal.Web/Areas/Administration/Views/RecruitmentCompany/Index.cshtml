@@ -15,31 +15,15 @@
 <div class="separator bottom"></div>
 <!-- // Heading END -->
 
-<table class="table table-bordered table-condensed table-striped table-primary table-vertical-center checkbox">
+<table class="table table-striped table-bordered table-white table-responsive swipe-horizontal table-primary">
     <thead>
         <tr>
-            <th style="width: 1%;" class="uniformjs"><input type="checkbox" /></th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.CompanyName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LogoUrl)
-            </th>
-           
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Version)
             </th>
             <th></th>
         </tr>
@@ -47,7 +31,6 @@
     <tbody>
     @foreach (var item in Model) {
         <tr class="selectable">
-            <td class="center uniformjs"><input type="checkbox" /></td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
@@ -56,21 +39,7 @@
                  <img src="@Url.Content(item.LogoUrl)" alt="Company Logo" height="20px"/>
             </td>
            
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Version)
-            </td>
+           
             <td>
                 <a href=" @Url.Action("Details","RecruitmentCompany", new { area = "Administration", id=item.RecruitmentCompanyId }) " class="btn-action glyphicons eye_open btn-default"><i></i></a>
                 <a href=" @Url.Action("Edit","RecruitmentCompany", new { area = "Administration", id=item.RecruitmentCompanyId }) " class="btn-action glyphicons pencil btn-success"><i></i></a>
