@@ -10,7 +10,7 @@ using ELegal.RecruitmentPortal.Web.Models;
 
 namespace ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany
 {
-    public class RecruitmentCompanyEditModel
+    public class RecruitmentCompanyEditModel : IViewModel
     {
         public RecruitmentCompanyEditModel()
         {

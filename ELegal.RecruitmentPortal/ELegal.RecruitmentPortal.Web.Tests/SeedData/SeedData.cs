@@ -428,7 +428,10 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
             {
                 var recUser = context.RecruitmentUsers.FirstOrDefault(p => p.UserProfile.UserId == recruitmentUser.UserProfile.UserId);
                 if (recUser == null)
+                {
                     context.RecruitmentUsers.Add(recruitmentUser);
+                    
+                }
             }
 
         }

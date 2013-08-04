@@ -194,6 +194,7 @@
     <Compile Include="Areas\Administration\Controllers\UserController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Dashboard\IndexModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\RecruitmentCompany\RecruitmentCompanyEditModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\RecruitmentUser\RecruitmentUserEditModel.cs" />
     <Compile Include="Areas\HR\HRAreaRegistration.cs" />
     <Compile Include="Areas\Recruitment\Controllers\CandidateController.cs" />
     <Compile Include="Areas\Recruitment\Controllers\DashboardController.cs" />
@@ -209,6 +210,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\ScreenType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Menu\MenuViewModel.cs" />

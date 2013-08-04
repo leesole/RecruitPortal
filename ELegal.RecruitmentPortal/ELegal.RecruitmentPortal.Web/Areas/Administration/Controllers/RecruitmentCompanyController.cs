@@ -29,9 +29,9 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            var model = new RecruitmentCompanyEditModel();
+            var model = PopulateRecruitmentCompanyEditModel(id);
             
-            model.RecruitmentCompany =     context.RecruitmentCompanies.Find(id);
+           
             model.ScreenType = ScreenType.Details;
             if (model.RecruitmentCompany == null)
             {
