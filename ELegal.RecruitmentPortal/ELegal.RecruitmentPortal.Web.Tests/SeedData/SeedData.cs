@@ -204,6 +204,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Male"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
 
                         },
                          new Candidate()
@@ -216,7 +218,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Male"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
-
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
                         },
                          new Candidate()
                         {
@@ -228,7 +231,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Male"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
-
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
                         },
                          new Candidate()
                         {
@@ -240,6 +244,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Female"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
 
                         },
                         new Candidate()
@@ -263,6 +269,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Female"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
 
                         },new Candidate()
                         {
@@ -274,6 +282,8 @@ namespace ELegal.RecruitmentPortal.Web.Tests.SeedData
                             Gender = new MetaKeyValueHelper().GetMetaKey("Candidate","Gender","Male"),
                             Religion = new MetaKeyValueHelper().GetMetaKey("Candidate","Religion","Christian"),
                             IsUkEligible = true,
+                            RecruitmentCompany =  context.RecruitmentCompanies.FirstOrDefault(),
+                            RecruitmentUser =  context.RecruitmentCompanies.FirstOrDefault().RecruitmentUsers.FirstOrDefault()
 
                         },
 

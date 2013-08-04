@@ -83,6 +83,7 @@ namespace ELegal.RecruitmentPortal.Framework.DataContext
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<Membership> Membership { get; set; }  
         public DbSet<RecruitmentCompanyRate> RecruitmentCompanyRates { get; set; }
         public DbSet<VacancyType> VacancyTypes { get; set; }
 
