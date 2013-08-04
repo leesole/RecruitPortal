@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using ELegal.RecruitmentPortal.Model;
 using ELegal.RecruitmentPortal.Framework.DataContext;
 using ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany;
+using ELegal.RecruitmentPortal.Web.Models;
 
 namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 {
@@ -28,12 +29,15 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            RecruitmentCompany recruitmentcompany = context.RecruitmentCompanies.Find(id);
-            if (recruitmentcompany == null)
+            var model = new RecruitmentCompanyEditModel();
+            
+            model.RecruitmentCompany =     context.RecruitmentCompanies.Find(id);
+            model.ScreenType = ScreenType.Details;
+            if (model.RecruitmentCompany == null)
             {
                 return HttpNotFound();
             }
-            return View(recruitmentcompany);
+            return View("Edit", model);
         }
 
         //
@@ -41,20 +45,8 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Create()
         {
-            var model = new RecruitmentCompanyEditModel();
-            model.RecruitmentCompany.CompanyName = "test";
-            var ratingList = context.MetaKeyValues.Where(o => o.EntityType == "RecruitmentCompany" && o.MetaType == "Rating");
-            if (ratingList.Any())
-            {
-                foreach (var rating in ratingList)
-                {
-                    model.RatingsList.Add(new SelectListItem()
-                    {
-                        Text = rating.Value,
-                        Value = rating.MetaKeyValueId.ToString()
-                    });
-                }
-            }
+            var model = PopulateRecruitmentCompanyEditModel(-1);
+            model.ScreenType = ScreenType.Create;
 
             return View("Edit",model);
         }
@@ -81,6 +73,16 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            var model = PopulateRecruitmentCompanyEditModel(id);
+            model.ScreenType = ScreenType.Edit;
+            if (model.RecruitmentCompany == null)
+                return HttpNotFound();
+          
+            return View(model);
+        }
+
+        private RecruitmentCompanyEditModel PopulateRecruitmentCompanyEditModel(int id)
+        {
             var model = new RecruitmentCompanyEditModel();
             var recruitmentCompany = context.RecruitmentCompanies.FirstOrDefault(o => o.RecruitmentCompanyId == id);
             if (recruitmentCompany != null)
@@ -90,35 +92,30 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.Controllers
 
                 //Set List of Users
                 model.RecruitmentUserItems = (from usr in recruitmentCompany.RecruitmentUsers
-                                             select new RecruitmentUserItem()
-                                                 {
-                                                    RecruitmentUserId = usr.RecruitmentUserId,
-                                                    FirstName = usr.UserProfile.FirstName,
-                                                    LastName =  usr.UserProfile.LastName
-                                                 }).ToList();
-               
+                                              select new RecruitmentUserItem()
+                                                  {
+                                                      RecruitmentUserId = usr.RecruitmentUserId,
+                                                      FirstName = usr.UserProfile.FirstName,
+                                                      LastName = usr.UserProfile.LastName
+                                                  }).ToList();
 
 
-
-                //Set Ratings
-                var ratingList = context.MetaKeyValues.Where(o => o.EntityType == "RecruitmentCompany" && o.MetaType == "Rating");
-                if (ratingList.Any())
+                
+            }
+            //Set Ratings
+            var ratingList = context.MetaKeyValues.Where(o => o.EntityType == "RecruitmentCompany" && o.MetaType == "Rating");
+            if (ratingList.Any())
+            {
+                foreach (var rating in ratingList)
                 {
-                    foreach (var rating in ratingList)
+                    model.RatingsList.Add(new SelectListItem()
                     {
-                        model.RatingsList.Add(new SelectListItem()
-                            {
-                                Text = rating.Value,
-                                Value = rating.MetaKeyValueId.ToString()
-                            });
-                    }
+                        Text = rating.Value,
+                        Value = rating.MetaKeyValueId.ToString()
+                    });
                 }
             }
-            else
-            {
-                return HttpNotFound();
-            }
-            return View(model);
+            return model;
         }
 
         //

@@ -1,4 +1,5 @@
-﻿@model ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany.RecruitmentCompanyEditModel
+﻿@using ELegal.RecruitmentPortal.Web.Models
+@model ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany.RecruitmentCompanyEditModel
 
 
 
@@ -112,11 +113,13 @@
                 <div class="widget-body">
                     @Html.DropDownList("RatingId", Model.RatingsList, "Rating")
                 </div>
-                <p>
-                    @*<button type="submit" value="create" id="btn-loading" class="btn btn-primary" data-loading-text="Custom Loading Text ...">Save</button>*@
-                   <input type="submit" value="Create" />
-                </p>
+                @if (Model.ScreenType != ScreenType.Details)
+                {
+                    <p>
+                        <button type="submit" value="create" id="btn-loading" class="btn btn-primary" data-loading-text="Custom Loading Text ...">Save</button>
 
+                    </p>
+                }
             </div>
         </div>
         <div class="span6">
@@ -124,14 +127,17 @@
                 <div class="widget-head">
                     <h4 class="heading">Recruiters</h4>
                 </div>
-                <div class="widget-body">
-                    <div class="buttons pull-right">
-                        <a href="@Url.Action("Create", "RecruitmentUser", new { area = "Administration" })" class="btn btn-primary btn-icon glyphicons circle_plus"><i></i>Add Recruiter</a>
-                        
+                @if (Model.ScreenType != ScreenType.Details)
+                {
+                    <div class="widget-body">
+                        <div class="buttons pull-right">
+                            <a href="@Url.Action("Create", "RecruitmentUser", new { area = "Administration" })" class="btn btn-primary btn-icon glyphicons circle_plus"><i></i>Add Recruiter</a>
+
+                        </div>
                     </div>
-                </div>
+                }
                 <div class="widget-body">
-                   
+
                     <div class="clearfix"></div>
                     <table class="table table-striped table-bordered table-white table-responsive swipe-horizontal table-primary">
                         <thead>
@@ -167,10 +173,10 @@
             </div>
         </div>
     </div>
-     if (Model.RecruitmentCompany.RecruitmentCompanyId != 0)
-     {
-         @Html.HiddenFor(model => model.RecruitmentCompany.RecruitmentCompanyId)
-     }
+                            if (Model.ScreenType == ScreenType.Edit)
+                            {
+    @Html.HiddenFor(model => model.RecruitmentCompany.RecruitmentCompanyId)
+                            }
 }
 
 <div>
@@ -179,4 +185,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @if (Model.ScreenType == ScreenType.Details)
+    {
+        <script type="text/javascript">
+
+            $("input").prop('disabled', true);
+        </script>
+    }
 }

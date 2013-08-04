@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ELegal.RecruitmentPortal.Model;
+using ELegal.RecruitmentPortal.Web.Models;
 
 namespace ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.RecruitmentCompany
 {
@@ -17,6 +18,8 @@ namespace ELegal.RecruitmentPortal.Web.Areas.Administration.ViewModels.Recruitme
             RecruitmentUserItems = new List<RecruitmentUserItem>();
             RecruitmentCompany = new Model.RecruitmentCompany();
         }
+
+        public ScreenType ScreenType { get; set; }
         public Model.RecruitmentCompany RecruitmentCompany { get; set; }
         public List<SelectListItem> RatingsList { get; set; }
         public List<RecruitmentUserItem> RecruitmentUserItems { get; set; } 
