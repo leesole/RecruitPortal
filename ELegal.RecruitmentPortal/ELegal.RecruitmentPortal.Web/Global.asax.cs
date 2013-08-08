@@ -25,6 +25,7 @@ namespace ELegal.RecruitmentPortal.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             AuthConfig.InitWebSec();
+//lee
 
             
         }
